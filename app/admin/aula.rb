@@ -1,4 +1,5 @@
 ActiveAdmin.register Aula do
+    permit_params :title, :content, :video, :section_header, :tag, :curso_id
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
