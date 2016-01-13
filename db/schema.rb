@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151221150022) do
+ActiveRecord::Schema.define(version: 20160104195923) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -55,6 +55,9 @@ ActiveRecord::Schema.define(version: 20151221150022) do
     t.integer  "curso_id"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
+    t.integer  "point"
+    t.integer  "time"
+    t.string   "downloadlink"
   end
 
   add_index "aulas", ["curso_id"], name: "index_aulas_on_curso_id"
@@ -65,6 +68,51 @@ ActiveRecord::Schema.define(version: 20151221150022) do
     t.integer  "price"
     t.string   "image"
     t.string   "tag"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "color"
+    t.integer  "trilha_id"
+    t.integer  "subtrilha_id"
+    t.string   "icon"
+    t.text     "public"
+    t.integer  "time"
+    t.string   "indexicon"
+    t.integer  "point"
+    t.text     "requeriment"
+  end
+
+  add_index "cursos", ["subtrilha_id"], name: "index_cursos_on_subtrilha_id"
+  add_index "cursos", ["trilha_id"], name: "index_cursos_on_trilha_id"
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer  "curso_id"
+    t.integer  "user_id"
+    t.text     "comment"
+    t.datetime "created_at", null: false
+    t.integer  "star"
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "reviews", ["curso_id"], name: "index_reviews_on_curso_id"
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id"
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.integer  "curso_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "subscriptions", ["curso_id", "user_id"], name: "index_subscriptions_on_curso_id_and_user_id", unique: true
+  add_index "subscriptions", ["curso_id"], name: "index_subscriptions_on_curso_id"
+  add_index "subscriptions", ["user_id"], name: "index_subscriptions_on_user_id"
+
+  create_table "trilhas", force: :cascade do |t|
+    t.string   "name"
+    t.string   "content"
+    t.string   "icon"
+    t.integer  "time"
+    t.string   "color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

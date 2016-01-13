@@ -16,11 +16,13 @@ gem 'devise', '~> 3.4.1'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 gem 'activeadmin', github: 'activeadmin'
 gem 'active_skin'
+gem 'active_admin-sortable_tree', '~> 0.2.1'
 
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
+    
 end
 
 

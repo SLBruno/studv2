@@ -1,3 +1,438 @@
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+// GERAL
+.h1 h2 h3 h4 h5 h6 p li {
+    font-family:sans-serif;
+}
+
+.center {
+    position: relative;
+    align-content: center;
+    align-items: center;
+    text-align: center; 
+}
+
+
+.indexpanel {
+    width: 500px;
+    padding: 5px;
+    border-top: none; 
+}
+
+.imagecursoshow {
+    width: 800px;
+    height: 300px;
+}
+
+.h3 {
+    color: darkcyan;
+
+}
+
+// INDEX (PÁGINA PRINCIPAL)
+
+#indexjumbotron { 
+    margin-top:-75px;
+    background-image:url(estudar.jpg); 
+    height: 400px;
+    margin-bottom: 0px; 
+}
+
+.indextitle {
+    color:white;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.16), 0 1px 2px rgba(0,0,0,0.23);
+    
+}
+
+.indexsubtitle {
+    color:white;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.16), 0 1px 2px rgba(0,0,0,0.23);
+    
+}
+
+#mainbutton { 
+    border-radius: 0px;
+    background-color: #2db2eb; 
+    border:none;
+    margin-top: 50px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.16), 0 1px 2px rgba(0,0,0,0.23);
+}
+
+#indexdiv { 
+    background-color:#e8e8e8;
+    padding-top: 50px;
+    padding-bottom: 75px; 
+    margin-bottom: 0px;
+
+}
+
+.pricetitle {
+    h2 {
+     font-weight: 900;
+     font-size: 60px;
+     margin-bottom: 25px; 
+    }        
+}
+
+#indexcoursebutton {
+    border-radius: 0px;
+    border:none;
+    background-color: #2db2eb;
+    margin-top: 10px;
+    margin-bottom: 15px; 
+    box-shadow: 0 1px 2px rgba(0,0,0,0.16), 0 1px 2px rgba(0,0,0,0.23);
+    font-weight: 600; 
+}
+
+#cursonameindex {
+    height: 45px; 
+    a {
+        color: dimgray;
+        hover { 
+        color: #2db2eb; 
+        }
+    }
+}
+
+#cursocontentindex {
+    height: 50px;
+    margin-bottom: 25px;
+    color: dimgray;
+    
+}
+
+#indexcontainer { 
+    background-color:lightgray;
+}
+
+#diferencialjumbotron {
+    padding: 20px; 
+}
+
+.indexcolortop {
+    width: 265px;
+    height: 60px;
+    margin-left: 0px;
+    margin-top: 0px; 
+    margin-bottom: 0px;
+    border-top-left-radius: 30px; 
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border: none;
+    background-color: green;
+
+    
+}
+
+.panelindex { 
+    font-family: segoe ui;
+    padding: 10px;
+    padding-top: -50px; 
+    width: 265px; 
+    height: 365px;
+    border-top-left-radius: 0px; 
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 30px; 
+    border-bottom-right-radius: 30px; 
+    border: none; 
+    
+    
+    h3 { 
+    font-weight: 800;
+    color: dimgray;
+    }
+}
+
+
+.circleimgindex { 
+    width: 100px; 
+    height: 100px; 
+    border-radius: 50px;
+    margin-top: -60px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.16), 0 5px 10px rgba(0,0,0,0.23);
+}
+
+.indextime {
+    border: 1px; 
+    border-top:1px grey;
+    border-right: 1px grey;
+    margin-top: 25px;
+    margin-bottom: 5px; 
+}
+
+.indexsubs {
+    border-top:1px grey;
+    margin-top: 25px;
+    margin-bottom: 5px; 
+}
+
+#diftop {
+    background-color: darkred;
+    color: white;
+    height: 75px;
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+    h1 {
+        margin-top: 0px; 
+    }
+    h2 {
+        margin-top: 0px;
+        font-size: 45px;
+        font-weight: 800;
+        padding: 10px; 
+    }
+}
+
+#difcontent {
+    background-color:indianred;
+    color: white;
+    margin-bottom: 0px; 
+    
+    h2 {
+    font-weight: 800;
+    }
+    
+    h4 { 
+    font-weight: 800;
+    font-size: 35px; 
+    }
+    h5 {
+    font-weight: 500;    
+        
+    }
+}
+
+#pricedisclaimer {
+    text-align: center;
+    background-color: dimgray;
+    color: white; 
+    height:50px;
+    padding: 15px; 
+    
+}
+
+.pricediv {
+    background-color: darkgray;
+    color: black; 
+    font-weight: 800;
+    text-align: center; 
+}
+
+.panelprice {
+    margin: 0px; 
+    margin-top:30px;
+    text-align: center; 
+    border-radius: 0px;
+    height: 450px; 
+    border: 0px;
+    padding: 0px; 
+    padding-top: 5px; 
+    box-shadow: 0 1px 2px rgba(0,0,0,0.16), 0 1px 2 px rgba(0,0,0,0.23);
+    
+    h2 {
+        color: #2db2eb;
+        font-weight:900; 
+    }
+    h3 {
+        color: #2db2eb;
+        margin-top:0px;
+        font-weight:700;
+        font-size:14px;
+        padding: 10px; 
+    }
+    ul li {
+        margin: 10px; 
+        text-align: left; 
+    }
+}
+
+.panelpricetop {
+    box-shadow: 0 5px 10px rgba(0,0,0,0.16), 0 5px 10px rgba(0,0,0,0.23);
+    height: 500px; 
+    border: 0px;
+    z-index: 1;
+    padding-top:5px;
+    margin-top: 10px; 
+    
+    h3 {
+        padding: 10px; 
+    }
+}
+
+.divprice {
+    background-color: lightgray ;
+    margin: 0px;
+    font-weight: bold;
+    padding: 20px;
+    margin-bottom: 15px;
+    font-size: 20px; 
+}
+
+.subscribebutton {
+    border-radius: 0px;
+    background-color: #2db2eb;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.16), 0 2px 4px rgba(0,0,0,0.23);
+    margin-top: 10px; 
+    width: 350px;
+    height: 55px; 
+    font-weight: 800; 
+ 
+}
+
+.subscribebuttontop {
+    border-radius: 0px;
+    margin-top: 40px; 
+    background-color: orange;
+    border: none;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.16), 0 5px 10px rgba(0,0,0,0.23); 
+    width: 350px; 
+    height: 55px;
+    font-weight: 800;
+}
+
+//SHOW CURSO PAGE
+
+#showdiv {
+    background-color:#e8e8e8;
+    padding-top: 50px;
+    padding-bottom: 75px; 
+    margin-bottom: 0px;
+    padding: 0px;
+    width: auto; 
+}
+
+.showicon { 
+    position: relative;
+    align-content: right;
+    align-items: right;
+    text-align: right;
+    margin: 0px; 
+}
+
+
+#showjumbotron { 
+    margin-top:-30px;
+    margin-bottom: 0px; 
+    color: white;
+    max-width: 5000px; 
+    }
+
+#showjumbotroninfo {
+    margin-top:-30px;
+    background-color:darkgray;
+    padding: 20px; 
+}
+
+.showcontent {
+    padding-top: 35px;
+    background-color: #E8E8E8; 
+}
+
+.list-group{
+    box-sizing:border-box;  
+}
+
+.sidebar { 
+    background-color:#202F3A; 
+    height: 1000px;
+    padding-top: 35px;    
+}
+
+.list-group-item {
+    max-width:1600px;
+    width: auto; 
+}
+
+.active {
+    margin-left: -20px;
+    border-radius: 0px;
+}
+
+
+.numbershow { 
+    color: white;
+    font-weight: 800;
+    margin-bottom: -10px; 
+}
+
+.textshow {
+    color: deepskyblue;
+    border-bottom-color: darkgrey;
+    border: 1px 
+}
+
+.cursoreviewtop {
+    background-color: #2db2eb;
+    color: white; 
+}
+
+.cursoreviews {
+    color: white; 
+    
+}
+
+// SHOW AULA PAGE
+
+.showcontentaula {
+    content-align: center;
+    margin-top:-20px;
+    border-radius:0px;
+    background-color: #e8e8e8;
+    height: inherit;
+}
+
+.sidebaraula { 
+    background-color:#202F3A; 
+    height: 1000px;
+    padding-top: 35px;
+    margin-top:-20px;
+}
+
+.aulavideo {
+    width: auto;
+    height: 400px;
+    background-color: darkolivegreen;
+
+}
+.aulacontent {
+    text-align: left;
+    border-radius: 0px;
+    padding: 10px; 
+    
+}
+
+.listaulaactive {
+    margin-left:-15px; 
+    
+}
+
+.buttfoonaula {
+    margin-bottom: 25px; 
+}
+
+.downloadsidebar {
+    margin-top: 25px;
+    margin-bottom:25px; 
+    color: white;
+    padding: 15px; 
+}
+
+.discussionsidebar {
+    margin-top: 25px;
+    margin-bottom:25px; 
+    color:white;
+    padding:15px; 
+}
+
+#showauladiv {
+    background-color:#e8e8e8;
+    padding-top: 50px;
+    padding-bottom: 0px; 
+    margin-bottom: 0px;
+    max-width: 3000px; 
+}

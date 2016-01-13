@@ -1,0 +1,32 @@
+    <div class="col-md-9 showcontentaula">
+        <h1><%= @aula.title %></h1>
+        <div class="panel panel-default aulavideo center">TESTE</div>
+        <div class="panel panel-default aulacontent center"><%= @aula.content %>
+        </div>
+    </div>
+    <div class="col-md-3 sidebaraula center">
+        <div class="btn-lg btn-primary buttonaula">
+        <span class="glyphicon glyphicon-star-empty"></span>COMPLETAR E CONTINUAR
+        </div>
+        <div class="row">
+        <div class="col-md-6 downloadsidebar">
+        <h1 class="glyphicon glyphicon-download" style="color:white;"></h1>
+        <p style="color:white;">DOWNLOADS</p>
+        </div>
+        <div class="col-md-6 discussionsidebar">
+            <h1 class="glyphicon glyphicon-cd" style="color:white;"></h1>    
+            <p>DISCUSSÃO</p>
+        </div>
+        </div>
+        
+        <div class="list-group">
+                <% @aulas.each do |aula| %>
+                <% if aula.section_header == true %>
+                <a class="list-group-item active listaulaactive"> 
+                    <%= aula.title %></a>
+                <% else %>
+                <%= link_to aula.title, [aula.curso, aula], :class => "list-group-item" %>
+                <% end %>
+                <% end %> 
+            </div>
+    </div>

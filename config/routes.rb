@@ -1,10 +1,23 @@
 Rails.application.routes.draw do
+  
+  #devise code!    
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users
-  resources :cursos
+  
+  post '/gratis' => 'charge#free'
+  get '/meuscursos' => 'cursos#list'
+  
     
-    root 'cursos#index'
+   resources :cursos do
+       resources :aula, only: [:show]
+    end 
+    
+    resources :curso do
+        resources :reviews, only: [:create, :destroy]
+    end
+    
+  root 'cursos#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

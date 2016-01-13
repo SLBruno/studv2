@@ -1,5 +1,5 @@
 ActiveAdmin.register Curso do
-    permit_params :name, :content, :price, :image, :tag
+    permit_params :name, :content, :price, :image, :tag, :point, :color, :trilha_id, :icon, :public, :time
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #

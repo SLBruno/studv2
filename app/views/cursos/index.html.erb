@@ -1,35 +1,137 @@
-<p id="notice"><%= notice %></p>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
 
-<h1>Listing Cursos</h1>
+<div class="jumbotron center" id="indexjumbotron">
+    <div class="container">
+        <h1 class="indextitle" style="color:white;">Coloque seus projetos em Prática!</h1>
+        <h3 class="indexsubtitle">Aprenda os melhores softwares de forma interessante e divertida e controle seu futuro!</h3>
+        <button class="btn-lg btn-primary" id="mainbutton">Veja os Cursos Grátis</button>
+    </div>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Content</th>
-      <th>Price</th>
-      <th>Image</th>
-      <th>Tag</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div id="indexdiv">
+<div class="container">
+    <div class="col-md-3 col-sm-12">
+        <h3>TEMAS</h3>
+        <p>Excel</p>
+        <p>Powerpoint</p>
+        <p>Photoshop</p>
+        <p>Illustrator</p>
+        <p>Excel</p>
+    </div>
+    <div class="col-md-9 col-sm-12">
+        <div class="container"> 
+        <% @cursos.in_groups_of(3) do |group| %>
+        <div class="row">
+        <% group.each do |curso| %>
+          <% if curso %>
+            <div class="col-md-3 col-sm-6 col-xs-12 center">
+                <div class="panel panel-default indexcolortop" style="background-color:<%= curso.color %>;"></div>
+                <div class="panel panel-default panelindex center">
+                    <%= image_tag(curso.icon, class:'circleimgindex center') %>
+                  <p><%= link_to curso do %>
+                  <h3 id="cursonameindex"><%= curso.name %></h3></p>
+                  <% end %>
+                      <p id="cursocontentindex"><%= curso.content %></p>
+                        <div class="col-xs-6 indextime">
+                        <b><%= curso.aulas.sum(:time)/360 %>h</b>
+                        <p> de curso</p>
+                        </div>
+                        <div class="col-xs-6 indexsubs">
+                            <b>435</b>
+                        <p>Inscritos</p>
+                        </div>
+                  <button class="btn-lg btn-primary" id="indexcoursebutton" style="background-color:<%= curso.color %>;">COMEÇAR AGORA!</button>
+                <% end %>
+                </div>
+              </div>
+          <% end %>
+         </div>         
+        <% end %>
+        </div>
+    </div>
+</div>
+<div class="jumbotron" id="diftop">
+    <h2> DIFERENCIAL </h2>
+</div>
+<div class="jumbotron" id="difcontent">
+    <div class="container center">
+            <div class="col-md-4">
+                <h4>Linguagem</h4>
+                <h5>Cansado de tentar aprender com cursos chatos? Nós somos muito mais animados!</h5>
+            </div>
+            <div class="col-md-4">
+                <h4>Foco!</h4>
+                <h5>Você não precisa ver todos os cursos,converse conosco e descubra o que se aplica a sua profissão!</h5>
+            </div>
+            <div class="col-md-4">
+                <h4>Educação é TUDO!</h4>
+                <h5>20% de todo o faturamento do Stud é revertido para instituições sem fins lucrativos que apoiam a educação. Nós mostramos mês a mês como foi a doação <a href="www.teste.com.br">aqui.</a></h5>
+            </div>
+    </div>
+</div>
+<div id="indexdiv">
+    <div class="pricetitle">
+        <h2 style="text-align:center;">TÁ, MAS QUANTO CUSTA?</h2>
+    </div>
+    <div class="container" id="pricedisclaimer">
+        <div class="col-md-4">Estude 24h por dia, onde e quando quiser!</div>
+        <div class="col-md-4">Tenha acesso a todos os cursos, sem restrições!</div>
+        <div class="col-md-4">Novos Cursos todos os meses!</div>
+    </div>
+    <div class="container">
+        <div class="row">
+    <div class="col-md-4 panel panel-default panelprice">
+        <h2>MEMBRO</h2>
+        <h3>"Tô na dúvida se esse tal de Stud vale a pena, mas vou testar!"</h3>
+        <div class="divprice">
+            Gratês! Nada, Nothing!
+        </div>
+        <ul>
+        <li>Assista as 3 primeiras aulas para
+decidir se o curso é bacana!</li>
+        <li>Receba novidades e “previews”
+dos cursos em sua caixa de
+mensagens, antes de todo
+mundo!</li>
+            <li>Participe de discussões e tire suas dúvidas no fórum;</li>
+        </ul>
+        <button class="btn-lg btn-primary subscribebutton">COMEÇAR AGORA</button>
+    </div>
+    <div class="col-md-4 panel panel-default panelprice panelpricetop">
+    <h2>ASSINANTE</h2>
+    <h3>"Vou fritar nos estudos, aprender tudo e ficar mais rico que vocês"</h3>
+        <div class="divprice">
+            R$ 39,90 / mês
+        </div>
+        <ul>
+            <li>Tenha acesso a todos os cursos;</li>
+            <li>Faça parte da comunidade;</li>
+            <li>Receba ajuda em até 48 horas;</li>
+            <li>Seja feliz aprendendo e colocandno seus sonhos em prática!</li>
+        </ul>
+        <button class="btn-lg btn-primary subscribebuttontop">ASSINAR</button>
+    </div>
+    <div class="col-md-4 panel panel-default panelprice">
+        <h2>ENTUSIASTA</h2>
+    <h3>"cara, vocês são tão incríveis que eu quero ficar com vocês por um ano inteiro!"</h3>
+        <div class="divprice">
+            R$ 399,90 / ano
+        </div>
+        <ul>
+            <li>Tenha acesso a todos os cursos;</li>
+            <li>Faça parte da comunidade;</li>
+            <li>Receba ajuda em até 8 horas;</li>
+            <li>Seja feliz aprendendo e colocandno seus sonhos em prática!</li>
+        </ul>
+        <button class="btn-lg btn-primary subscribebutton">ASSINAR</button>
+    </div>  
+    </div>
+        </div>
+        </div>
+    </div>
 
-  <tbody>
-    <% @cursos.each do |curso| %>
-      <tr>
-        <td><%= curso.name %></td>
-        <td><%= curso.content %></td>
-        <td><%= curso.price %></td>
-        <td><%= curso.image %></td>
-        <td><%= curso.tag %></td>
-        <td><%= link_to 'Show', curso %></td>
-        <td><%= link_to 'Edit', edit_curso_path(curso) %></td>
-        <td><%= link_to 'Destroy', curso, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+</div>
 
-<br>
 
-<%= link_to 'New Curso', new_curso_path %>
+

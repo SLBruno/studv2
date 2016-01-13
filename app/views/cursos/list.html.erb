@@ -1,0 +1,41 @@
+<h1>Meus Cursos!</h1>
+
+<div class="row">
+<br/>
+    
+    <% if @cursos.count > 0 %>
+        <div class="container"> 
+        <% @cursos.in_groups_of(3) do |group| %>
+        <div class="row">
+        <% group.each do |curso| %>
+          <% if curso %>
+            <div class="col-md-3 col-sm-6 col-xs-12 center">
+                <div class="panel panel-default indexcolortop" style="background-color:<%= curso.color %>;"></div>
+                <div class="panel panel-default panelindex center">
+                    <%= image_tag(curso.icon, class:'circleimgindex center') %>
+                  <p><%= link_to curso do %>
+                  <h3 id="cursonameindex"><%= curso.name %></h3></p>
+                  <% end %>
+                      <p id="cursocontentindex"><%= curso.content %></p>
+                        <div class="col-xs-6 indextime">
+                        <b><%= curso.aulas.sum(:time)/360 %>h</b>
+                        <p> de curso</p>
+                        </div>
+                        <div class="col-xs-6 indexsubs">
+                            <b>435</b>
+                        <p>Inscritos</p>
+                        </div>
+                  <button class="btn-lg btn-primary" id="indexcoursebutton" style="background-color:<%= curso.color %>;">COMEÇAR AGORA!</button>
+                <% end %>
+                </div>
+              </div>
+          <% end %>
+         </div>         
+        <% end %>
+    <% else %>
+    <div class="center">
+    <h5>Que peninha! Você ainda não está cadastrado em nenhum curso.</h5>
+        <%= link_to "Encontrar Cursos", root_path, class: "btn-lg btn-primary" %>
+    </div>
+    <% end %>
+        </div>
