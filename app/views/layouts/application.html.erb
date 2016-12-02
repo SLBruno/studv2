@@ -5,24 +5,20 @@
       <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
       <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
       <%= csrf_meta_tags %>
-        
-        <%= yield :head %>
-        <script src="//load.sumome.com/" data-sumo-site-id="6f0938ce5c8095c971a227b07cf5ffc955644fd4ee0faa2390ccad9721d42703" async="async"></script>
-        
+
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,800" rel="stylesheet">
+
+      <%= yield :head %>
+
     </head>
     <%= render partial: 'shared/header' %>
-    <body>  
+
+    <body>
         <%= yield %>
     </body>
-    
-    
-    
-    
-    
-    
-        <footer class="col-md-12" id="footer">
-            <%= render partial: 'shared/footer' %>
-        </footer>
 
+    <footer class="col-md-12" id="footer">
+        <%= render partial: 'shared/footer' %>
+    </footer>
 
 </html>

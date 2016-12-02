@@ -1,131 +1,48 @@
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-
-<div class="jumbotron center" id="indexjumbotron">
-    <div class="container">
-        <h1 class="indextitle" style="color:white;">Coloque seus projetos em Prática!</h1>
-        <h3 class="indexsubtitle">Aprenda os melhores softwares de forma interessante e divertida e controle seu futuro!</h3>
-        <button class="btn-lg btn-primary" id="mainbutton">Veja os Cursos Grátis</button>
-    </div>
-</div>
-
-<div class="jumbotron" id="diftop">
-    <h2> DIFERENCIAL </h2>
-</div>
-<div class="jumbotron" id="difcontent">
-    <div class="container center">
-        <div class="col-md-4">
-                <h4>Linguagem</h4>
-                <h5>Cansado de tentar aprender com cursos chatos? Nós somos muito mais animados!</h5>
-        </div>
-        <div class="col-md-4">
-                <h4>Foco!</h4>
-                <h5>Você não precisa ver todos os cursos e passar por um monte de informação inútil! Descubra o que se aplica a sua profissão!</h5>
-        </div>
-        <div class="col-md-4">
-                <h4>Educação é TUDO!</h4>
-                <h5>20% de todo o faturamento do Stud é revertido para instituições sem fins lucrativos que apoiam a educação. Nós mostramos mês a mês como foi a doação <a href="www.teste.com.br">aqui.</a></h5>
-        </div>       
-    </div>
-</div>
-
-<div id="indexdiv">
-<div class="container cursosshow">
-        <div class="container">
-        <h1 class="cursoshowtext" style="text-align:center;"> CURSOS </h1>
-        <% @cursos.in_groups_of(4) do |group| %>
+<main class="content">
+  <header class="intro-header" style="background-image: url(https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/J7YRJBKV9D.jpg)">
+      <div class="header-container">
         <div class="row">
-        <% group.each do |curso| %>
-          <% if curso %>
-            <div class="col-md-3 col-sm-6 col-xs-12 center">
-                <div class="panel panel-default indexcolortop" style="background-color:<%= curso.color %>;"></div>
-                <div class="panel panel-default panelindex center">
-                    <%= image_tag(curso.icon, class:'circleimgindex center') %>
-                  <p><%= link_to curso do %></p>
-                  <h3 id="cursonameindex"><%= curso.name %></h3>
+          <h1> Coloque seus projetos em Prática!</h1>
+          <h3>Aprenda marketing digital e progração de uma forma que você pode começar a aplicar ainda hoje!</h3>
+      </div>
+    </div>
+  </header>
+  <div class="clearfix"></div>
+  <section id="index-subheader">
+    
+  </section>
+  <section id="index-courses">
+    <div class="container">
+      <h1 style="text-align: center; margin-bottom: 20px;"> CURSOS </h1>
+          <% @cursos.in_groups_of(3) do |group| %>
+          <div class="row">
+          <% group.each do |curso| %>
+            <% if curso %>
+              <div class="col-md-4 col-sm-6 col-xs-12">
+                  <div class="panel panel-default index-panel">
+                      <!--<%= image_tag(curso.icon, class:'circleimgindex center') %>-->
+                    <%= link_to curso do %>
+                    <h3><%= curso.name %></h3>
+                    <% end %>
+                    <p class="index-course-content"><%= truncate(curso.content, :length => 110) %></p>
+                    <hr>
+                    <div class="row">
+                      <div class="col-xs-6 center">
+                        <b><%= curso.aulas.sum(:time)/360 %>h</b> de curso
+                      </div>
+                      <div class="col-xs-6 center">
+                        <b><%= curso.users.count %></b> Inscritos
+                      </div>
+                    </div>
+                    <button class="btn btn-highlight" > COMEÇAR AGORA!</button>
                   <% end %>
-                      <p id="cursocontentindex"><%= truncate(curso.content, :length => 110) %></p>
-                        <div class="col-xs-6 indextime">
-                        <b><%= curso.aulas.sum(:time)/360 %>h</b>
-                        <p> de curso</p>
-                        </div>
-                        <div class="col-xs-6 indexsubs">
-                            <b><%= curso.users.count %></b>
-                        <p>Inscritos</p>
-                        </div>
-                  <button class="btn-lg btn-primary" id="indexcoursebutton" style="background-color:<%= curso.color %>;">COMEÇAR AGORA!</button>
-                <% end %>
+                  </div>
                 </div>
-              </div>
+            <% end %>
+           </div>
           <% end %>
-         </div>         
-        <% end %>
-        </div>
-    </div>
-</div>
-
-<div id="indexdiv">
-    <div class="pricetitle">
-        <h2 style="text-align:center;">TÁ, MAS QUANTO CUSTA?</h2>
-    </div>
-    <div class="container" id="pricedisclaimer">
-        <div class="col-md-4">Estude 24h por dia, onde e quando quiser!</div>
-        <div class="col-md-4">Tenha acesso a todos os cursos, sem restrições!</div>
-        <div class="col-md-4">Novos Cursos todos os meses!</div>
-    </div>
-    <div class="container">
-        <div class="row">
-    <div class="col-md-4 panel panel-default panelprice">
-        <h2>MEMBRO</h2>
-        <h3>"Tô na dúvida se esse tal de Stud vale a pena, mas vou testar!"</h3>
-        <div class="divprice">
-            Gratês! Nada, Nothing!
-        </div>
-        <ul>
-        <li>Assista as 3 primeiras aulas para
-decidir se o curso é bacana!</li>
-        <li>Receba novidades e “previews”
-dos cursos em sua caixa de
-mensagens, antes de todo
-mundo!</li>
-            <li>Participe de discussões e tire suas dúvidas no fórum;</li>
-        </ul>
-        <button class="btn-lg btn-primary subscribebutton">COMEÇAR AGORA</button>
-    </div>
-    <div class="col-md-4 panel panel-default panelprice panelpricetop">
-    <h2>ASSINANTE</h2>
-    <h3>"Vou fritar nos estudos, aprender tudo e ficar mais rico que vocês"</h3>
-        <div class="divprice">
-            R$ 39,90 / mês
-        </div>
-        <ul>
-            <li>Tenha acesso a todos os cursos;</li>
-            <li>Faça parte da comunidade;</li>
-            <li>Receba ajuda em até 48 horas;</li>
-            <li>Seja feliz aprendendo e colocandno seus sonhos em prática!</li>
-        </ul>
-        <button class="btn-lg btn-primary subscribebuttontop">ASSINAR</button>
-    </div>
-    <div class="col-md-4 panel panel-default panelprice">
-        <h2>ENTUSIASTA</h2>
-    <h3>"cara, vocês são tão incríveis que eu quero ficar com vocês por um ano inteiro!"</h3>
-        <div class="divprice">
-            R$ 399,90 / ano
-        </div>
-        <ul>
-            <li>Tenha acesso a todos os cursos;</li>
-            <li>Faça parte da comunidade;</li>
-            <li>Receba ajuda em até 8 horas;</li>
-            <li>Seja feliz aprendendo e colocandno seus sonhos em prática!</li>
-        </ul>
-        <button class="btn-lg btn-primary subscribebutton">ASSINAR</button>
-    </div>  
-    </div>
-        </div>
-        </div>
-    </div>
-
-</div>
-
-
-
+          </div>
+      </div>
+  </div>
+-->
+</main>

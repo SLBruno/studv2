@@ -2,639 +2,182 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+$blue: #02b3e4;
+$dark-blue: #028BB1;
+$grey: #F6F8F8;
+$dark-grey: #E2E8E9;
+$darker-grey: #697681;
+
+
+
 // GERAL
-html, body {
-    height: 100%;
-    background-color: #e8e8e8;
+
+* {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
 }
 
-.h1 h2 h3 h4 h5 h6 p li {
-    font-family: "roboto";
+h1, h2, h3 {
+  font-weight: 800;
 }
 
 .center {
-    position: relative;
-    align-content: center;
-    align-items: center;
-    text-align: center; 
+  text-align: center;
+  align: center;
 }
 
-.contentaula {
-    margin-bottom: 30px; 
+.divcenter {
+  position: relative;
+  top: 50%;
+  margin: 0 auto;
 }
 
-.header {
-    background-color: #010c12;
-    border: none;
-    border-radius: 0px;
+//HEADER
+
+.navbar-custom {
+  background-color: white;
+  color: $blue;
+  border: none;
+  z-index: 3;
+  margin-bottom: 0px;
+  height: 80px;
+  padding: 20px;
+}
+
+.navbar-default .navbar-brand,
+#bs-example-navbar-collapse-1 > ul.nav.navbar-nav.navbar-right > li > a  {
+  font-weight: 300;
+  z-index: 3;
+  font-size: 1.75em; 
+  color: $blue;
+}
+
+#bs-example-navbar-collapse-1 > ul.nav.navbar-nav.navbar-right > li > a {
+  font-weight: 300;
+  font-size: 1em;
+  color: $darker-grey;
+}
+
+//COMMOM STYLES
+
+.panel-default {
+  box-shadow: 0 0.3125em 1.25em 0 rgba(46, 61, 73, 0.12);
+  border-color: #DBE2E8;
+  border-width: 1px;
+}
+
+.container {
+  max-width: 1200px;
 }
 
 
-.indexpanel {
-    width: 500px;
-    padding: 5px;
-    border-top: none; 
+//INDEX STYLES
+
+.content {
+  clear: both;
+  min-height:100%;
 }
 
-.imagecursoshow {
-    width: 800px;
-    height: 300px;
+.intro-header {
+  position: relative;
+  opacity: 1;
+  height: 400px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  padding: 150px;
+  background-position-y: 50%;
+  z-index: 1;
+  background-size: cover;
+  background: no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
 }
 
-.h3 {
-    color: darkcyan;
-
+.intro-header::before {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: black;
+  content: "";
+  display: block;
+  z-index: 2;
+  opacity: 0.4;
+  float: left;
 }
 
-.containertobottom {
-    display:table;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    margin-top: -20px;
+.intro-header::after,  .header-container::after {
+  clear: both;
+  display: table;
+  content: " ";
+  box-sizing: border-box;
 }
 
-.aulatitle {
-    padding: 10px; 
-}
+.header-container {
+  z-index: 3;
+  opacity: 1;
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.3);
+  position: relative;
 
-#footer {
-    background-color: #252830;
-    height: auto;
-    padding: 0;
-    border: none;
-}
-
-#footernavbar {
-    padding:inherit;
-    border: none;
-    
-}
-// INDEX (PÁGINA PRINCIPAL)
-
-#indexjumbotron { 
-    margin-top:-75px;
-    background-image:url(estudar.jpg); 
-    height: 450px;
-    margin-bottom: 0px; 
-}
-
-.indextitle {
+  h1, h3 {
     color:white;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.16), 0 1px 2px rgba(0,0,0,0.23);
-    margin-top: 50px; 
-    
+  }
+
+  h1 {
+    size: 3em;
+  }
+
+  h3 {
+    font-weight: 300;
+  }
 }
 
-.indexsubtitle {
-    color:white;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.16), 0 1px 2px rgba(0,0,0,0.23);
-    
+#index-courses {
+  background-color: $grey;
 }
 
-#mainbutton { 
-    border-radius: 0px;
-    background-color: #2db2eb; 
-    border:none;
-    margin-top: 50px;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.16), 0 1px 2px rgba(0,0,0,0.23);
-}
-
-#indexdiv { 
-    background-color:#e8e8e8;
-    padding-top: 50px;
-    padding-bottom: 75px; 
-    margin-bottom: 0px;
-
-}
-
-.pricetitle {
-    h2 {
-     font-weight: 900;
-     font-size: 60px;
-     margin-bottom: 25px; 
-    }        
-}
-
-#indexcoursebutton {
-    border-radius: 0px;
-    border:none;
-    background-color: #2db2eb;
-    margin-top: 10px;
-    margin-bottom: 15px; 
-    box-shadow: 0 1px 2px rgba(0,0,0,0.16), 0 1px 2px rgba(0,0,0,0.23);
-    font-weight: 600; 
-}
-
-#cursonameindex {
-    height: 45px; 
-    a {
-        color: dimgray;
-        hover { 
-        color: #2db2eb; 
-        }
-    }
-}
-
-#cursocontentindex {
-    height: 50px;
-    margin-bottom: 25px;
-    color: dimgray;
-    
-}
-
-#indexcontainer { 
-    background-color:lightgray;
-}
-
-#diferencialjumbotron {
-    padding: 20px; 
-}
-
-.indexcolortop {
-    width: 265px;
-    height: 60px;
-    margin-left: 0px;
-    margin-top: 0px; 
-    margin-bottom: 0px;
-    border-top-left-radius: 0px; 
-    border-top-right-radius: 0px;
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
-    border: none;
-    background-color: green;
-
-    
-}
-
-.panelindex { 
-    font-family: segoe ui;
-    padding: 10px;
-    padding-top: -50px; 
-    width: 265px; 
-    height: 365px;
-    border-top-left-radius: 0px; 
-    border-top-right-radius: 0px;
-    border-bottom-left-radius: 0px; 
-    border-bottom-right-radius: 0px; 
-    border: none; 
-    
-    
-    h3 { 
-    font-weight: 800;
-    color: dimgray;
-    }
-}
-
-
-.circleimgindex { 
-    width: 100px; 
-    height: 100px; 
+.circleimgindex {
+    width: 100px;
+    height: 100px;
     border-radius: 50px;
-    margin-top: -60px;
     box-shadow: 0 5px 10px rgba(0,0,0,0.16), 0 5px 10px rgba(0,0,0,0.23);
-}
-
-.indextime {
-    border: 1px; 
-    border-top:1px grey;
-    border-right: 1px grey;
-    margin-top: 25px;
-    margin-bottom: 5px; 
-}
-
-.indexsubs {
-    border-top:1px grey;
-    margin-top: 25px;
-    margin-bottom: 5px; 
-}
-
-#diftop {
-    background-color: #333333;
-    opacity: 0.9; 
-    color: white;
-    height: 75px;
-    padding: 0px;
-    margin: 0px;
-    text-align: center;
-    h1 {
-        margin-top: 0px; 
-    }
-    h2 {
-        margin-top: 0px;
-        font-size: 45px;
-        font-weight: 800;
-        padding: 10px; 
-    }
-}
-
-#difcontent {
-    background-color:#2f323a;
-    color: white;
-    opacity: 0.7; 
-    margin-bottom: 0px; 
-    
-    h2 {
-    font-weight: 800;
-    }
-    
-    h4 { 
-    font-weight: 800;
-    font-size: 35px; 
-    }
-    h5 {
-    font-weight: 500;    
-        
-    }
-}
-
-#pricedisclaimer {
-    text-align: center;
-    background-color: dimgray;
-    color: white; 
-    height:50px;
-    padding: 15px; 
-    
-}
-
-.pricediv {
-    background-color: darkgray;
-    color: black; 
-    font-weight: 800;
-    text-align: center; 
-}
-
-.panelprice {
-    margin: 0px; 
-    margin-top:30px;
-    text-align: center; 
-    border-radius: 0px;
-    height: 450px; 
-    border: 0px;
-    padding: 0px; 
-    padding-top: 5px; 
-    box-shadow: 0 1px 2px rgba(0,0,0,0.16), 0 1px 2 px rgba(0,0,0,0.23);
-    
-    h2 {
-        color: #2db2eb;
-        font-weight:900; 
-    }
-    h3 {
-        color: #2db2eb;
-        margin-top:0px;
-        font-weight:700;
-        font-size:14px;
-        padding: 10px; 
-    }
-    ul li {
-        margin: 10px; 
-        text-align: left; 
-    }
-}
-
-.panelpricetop {
-    box-shadow: 0 5px 10px rgba(0,0,0,0.16), 0 5px 10px rgba(0,0,0,0.23);
-    height: 500px; 
-    border: 0px;
-    z-index: 1;
-    padding-top:5px;
-    margin-top: 10px; 
-    
-    h3 {
-        padding: 10px; 
-    }
-}
-
-.divprice {
-    background-color: lightgray ;
-    margin: 0px;
-    font-weight: bold;
-    padding: 20px;
-    margin-bottom: 15px;
-    font-size: 20px; 
-}
-
-.subscribebutton {
-    border-radius: 0px;
-    background-color: #2db2eb;
-    border: none;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.16), 0 2px 4px rgba(0,0,0,0.23);
-    margin-top: 10px; 
-    width: 350px;
-    height: 55px; 
-    font-weight: 800; 
- 
-}
-
-.subscribebuttontop {
-    border-radius: 0px;
-    margin-top: 40px; 
-    background-color: orange;
-    border: none;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.16), 0 5px 10px rgba(0,0,0,0.23); 
-    width: 350px; 
-    height: 55px;
-    font-weight: 800;
-}
-
-.titulos {
-    font-weight: 600;
-    font-size: 20px;
-    border-bottom: 1px solid lightgrey; 
-}
-
-//SHOW CURSO PAGE
-
-#showdiv {
-    background-color:#e8e8e8; 
-    margin-bottom: 0px;
-    width: 100%;
-    display:table;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-.showicon { 
-    position: relative;
-    align-content: right;
     align-items: right;
-    text-align: right;
-    margin: 0px; 
 }
 
-
-#showjumbotron { 
-    margin-top:-30px;
-    margin-bottom: 0px; 
-    color: white;
-    max-width: 5000px; 
+.index-panel {
+  padding: 0 10px 20px 10px;
+  height: 265px;
+    h3 {
+      color: $blue;
+      margin-bottom: 20px;
+    }
+    h3, p {
+      text-align: center;
     }
 
-#showjumbotroninfo {
-    margin-top:-30px;
-    background-color:darkgray;
-    padding: 20px; 
-}
- 
-#showcontentcurso {
-    width: 85%
-}
-
-
-.cursoshowtext {
-    font-weight: 800;
-    font-size: 65px;
-    margin-bottom: 30px; 
-}
-
-.showcontent {
-    border-radius:0px;
-    background-color: #e8e8e8;
-    height: auto;
-    margin-top: -20px;
-    padding: 30px;  
-}
-
-.list-group{
-    box-sizing:border-box;  
-}
- 
-.sidebar { 
-    background-color:#010c12;
-    margin-top: -20px; 
-    height: 100%;
-    z-index: 1;
-    padding: 0px 0px 100px 0px; 
-} 
-
-.cursosidebar {
-    background-color:#010c12;
-    margin-top: -20px;
-    padding-bottom: 800px; 
-    height: inherit;    
-    z-index: 1;
-    position: relative;
-}
-
-.list-group-item {
-    max-width:1600px;
-    width: auto; 
-}
-
-.active {
-    margin-left: -20px;
-    border-radius: 0px;
-}
-
-
-.numbershow { 
-    color: white;
-    font-weight: 800;
-    margin-bottom: -10px;
-    text-align: center; 
-}
-
-.smalltext {
-    margin-top:-10px; 
-}
-
-.textshow {
-    color: white;
-    border-bottom-color: darkgrey;
-    border: 1px;
-    text-align: center; 
-}
-
-.cursoreviewtop {
-    background-color: #2db2eb;
-    color: white;
-    margin: -20px;
-    border: none;
-    margin-bottom: 30px;
-    
-}
-
-.buythecourse {
-    background-color: #055884;
-    color: white;
-    height: 200px;
-    margin: 0px -15px 0px -15px; 
-    padding: 20px;  
-}
-
-.paymentbutton {
-    border: none;
-    border-radius: none;
-    background-color: #DE521E; 
-}
-
-.progress {
-    margin-top: 35px; 
-}
-
-.cursoinsc {
-    width: 50px; 
-    height: 50px;
-    border-radius: 50px;
-}
-
-.margintop10 {
-    margin-top: 10px; 
-}
-
-.cursosidebartop {
-    color: white;
-    margin: 10px 0px 10px 0px; 
-    text-align: left;
-    border: none;
-    box-shadow: none;
-    border-bottom: none; 
-    height: 40px;
-    font-weight: 200;
-    font-size: 20px;
-    padding: 10px;
-    paddint-right: 30px;
-}
-
-.cursoreviews {
-    color: white;
-    border: 1px solid white; 
-    
-}
-
-.reviewbox {
-    color: gray;
-    margin-bottom: 15px;
-    font-align: justify; 
-    
-    strong {
-        text-align:left;
-        font-weight:800;
-        font-size: 14px;
-    }
-    star {
-        text-align:right;
-    }
-    
-    hr {
-        margin: 1px;
-        colot: gray; 
-    }
-}
-
-.greatmargin {
-    margin-left: 50px;
-    margin-right: 50px;
-    margin-top: 10px;
-    margin-bottom: 10px; 
-    max-width: 250px;
-    align-content: center;
-    position: relative; 
-}
-
-// SHOW AULA PAGE
-
-.showcontentaula {
-    content-align: center;
-    margin-top:-20px;
-    border-radius: 0px;
-    background-color: #e8e8e8;
-    padding: 30px;
-}
-   
-.sidebaraula { 
-    background-color:#010c12;
-    height: 100%; 
-    padding-top: 50px;
-    margin-top: -20px;
-    padding-bottom: 1200px;
-    padding-right: 30px; 
 
 }
 
-.panelsidebarshowcurso {
-    background-color: #1b3e51; 
-    border: none;
-    border-radius: 0px;
-    margin-top: 20px;
-    padding: 5px;
+.index-course-content {
+  height: 60px;
 }
 
-.noborder {
-    border-radius: 0px;
-    margin-left: 15px;
-    border: none;
+.btn-highlight {
+  margin: auto;
+  margin-top:25px;
+  display: block;
+  background-color: $blue;
+  color: white;
+  font-weight: 800;
 }
 
-.aulavideo {
-    width: 100%;
-    height: 500px;
+// box-shadow para ser usado no cinza: 0 0.125em 0.25em 0 rgba(46, 61, 73, 0.12);
+// box-shadow udacity no branco: 0.3125em 1.25em 0 rgba(46, 61, 73, 0.12);
+// box-shadow code-school padráo: 0 1px 1px rgba(0,0,0,0.3)
 
-}
-.aulacontent {
-    text-align: left;
-    border-radius: 0px;
-    padding: 10px;
-}
-
-.margin20 {
-    margin: 20px; 
-    align-self: center; 
-}
-
-.cursocontent {
-    text-align: left;
-    border-radius: 0px;
-    padding: 10px;    
-}
-
-.listaulaactive {
-    margin-left:-15px;
-    background-color: #022538; 
-}
-
-.list-group-item.active{
-    background-color: #022538;
-    border: none; 
-}
-
-
-.buttfoonaula {
-    margin-bottom: 25px; 
-}
-
-.downloadsidebar {
-    margin-top: 25px;
-    margin-bottom:25px; 
-    color: white;
-    padding: 15px; 
-}
-
-.discussionsidebar {
-    margin-top: 25px;
-    margin-bottom:25px; 
-    color:white;
-    padding:15px; 
-}
-
-#showauladiv {
-    background-color:#e8e8e8;
-    padding-top: 50px;
-    padding-bottom: 0px; 
-    margin-bottom: 0px;
-    max-width: 3000px; 
-}
-
-.disqus {
-    padding: 10px; 
-}
-
-
-// FOOTER
-
-.footertext {
-    margin: 5px;
-    margin-top: 20px; 
-    padding: 5px; 
-}
-
-
+//HEADER
