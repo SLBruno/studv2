@@ -1,5 +1,5 @@
 <main class="content">
-  <header class="intro-header" style="background-image: url(https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/J7YRJBKV9D.jpg)">
+  <header class="intro-header" style="background-image: url('https://static.pexels.com/photos/1139/black-and-white-city-skyline-buildings.jpg')">
       <div class="header-container">
         <div class="row">
           <h1> Coloque seus projetos em Prática!</h1>
@@ -9,11 +9,34 @@
   </header>
   <div class="clearfix"></div>
   <section id="index-subheader">
-    
+    <div class="col-md-6 col-xs-12 index-subheader-left">
+      <div class="half-container">
+        <h3> Marketing Digital </h3>
+        <p> Aprenda sobre ferramentas e habilidades essenciais para começar no marketing digital. Desde o comecinho mesmo! </p>
+        <ul>
+          <li> Criar um website </li>
+          <li> Rankear seu site no Google </li>
+          <li> Comprar Mídia Digital </li>
+          <li> Realizar Pesquisas </li>
+          <li> Leitura de dados e otimização </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-6 col-xs-12 index-subheader-right">
+      <div class="half-container">
+        <h3> Data Science </h3>
+        <p> Aprenda sobre ferramentas e habilidades essenciais para começar no marketing digital. Desde o comecinho mesmo! </p>
+        <ul>
+          <li> Estatística </li>
+          <li> Pesquisa de Mercado</li>
+          <li> Normalização de bancos de dados </li>
+        </ul>
+      </div>
+    </div>
   </section>
   <section id="index-courses">
     <div class="container">
-      <h1 style="text-align: center; margin-bottom: 20px;"> CURSOS </h1>
+      <h1 style="text-align: center; margin-bottom: 40px; font-size: 3.5em;"> CURSOS </h1>
           <% @cursos.in_groups_of(3) do |group| %>
           <div class="row">
           <% group.each do |curso| %>

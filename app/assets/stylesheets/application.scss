@@ -18,7 +18,7 @@ $darker-grey: #697681;
 }
 
 h1, h2, h3 {
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .center {
@@ -41,14 +41,14 @@ h1, h2, h3 {
   z-index: 3;
   margin-bottom: 0px;
   height: 80px;
-  padding: 20px;
+  padding: 15px;
 }
 
 .navbar-default .navbar-brand,
 #bs-example-navbar-collapse-1 > ul.nav.navbar-nav.navbar-right > li > a  {
-  font-weight: 300;
+  font-weight: 600;
   z-index: 3;
-  font-size: 1.75em; 
+  font-size: 1.75em;
   color: $blue;
 }
 
@@ -79,14 +79,15 @@ h1, h2, h3 {
 }
 
 .intro-header {
+  background-image: url('header');
   position: relative;
   opacity: 1;
-  height: 400px;
+  height: 375px;
   bottom: 0;
   left: 0;
   right: 0;
   top: 0;
-  padding: 150px;
+  padding: 100px;
   background-position-y: 50%;
   z-index: 1;
   background-size: cover;
@@ -106,7 +107,7 @@ h1, h2, h3 {
   content: "";
   display: block;
   z-index: 2;
-  opacity: 0.4;
+  opacity: 0.6;
   float: left;
 }
 
@@ -137,6 +138,30 @@ h1, h2, h3 {
   }
 }
 
+// SUB-HEADER
+
+.index-subheader-left {
+  background-color: $blue;
+  height: 400px;
+  color: white;
+  margin-bottom: 40px;
+}
+
+.index-subheader-right {
+  background-color: #f4f4ef;
+  height: 400px;
+  margin-bottom: 40px;
+}
+
+.half-container {
+  width: 500px;
+  align-text: center;
+  margin: auto;
+  padding: 75px;
+}
+
+//INDEX COURSES
+
 #index-courses {
   background-color: $grey;
 }
@@ -150,10 +175,10 @@ h1, h2, h3 {
 }
 
 .index-panel {
-  padding: 0 10px 20px 10px;
-  height: 265px;
+  padding: 20px 40px 30px 40px;
+  height: 310px;
     h3 {
-      color: $blue;
+      color: #363636;
       margin-bottom: 20px;
     }
     h3, p {
@@ -169,15 +194,63 @@ h1, h2, h3 {
 
 .btn-highlight {
   margin: auto;
-  margin-top:25px;
+  margin-top:35px;
   display: block;
   background-color: $blue;
   color: white;
-  font-weight: 800;
+  font-size: 1.2em;
+  font-weight: 600;
 }
+
+// SHOW COURSE
+
+#show-course-header {
+  min-height: 300px;
+  background: linear-gradient(to right, $blue, #616db3);
+  color: white;
+  padding-top: 25px;
+
+  h3, h5, h2 {
+    text-align: center;
+  }
+}
+
+.show-course-info-row {
+  margin-bottom: 20px; 
+}
+
+#show-course-header {
+  background-color: $grey;
+}
+
+.border-circle {
+  border-radius: 30px;
+  border: 1px solid rgba(150, 150, 150, 0.8);font-weight: 600;
+  color: #9C9C9C;
+  float: left;
+  width: 27px;
+  text-align: center;
+  display: inline-block;
+  margin-right: 20px;
+  height: 27px;
+  padding: 4px;
+}
+
+// SHOW AULA
+
+.content-container {
+  width: 750px;
+  margin: auto;
+  margin-top: 50px;
+}
+
+#disqus_thread {
+  padding: 15p;
+}
+
+
+
 
 // box-shadow para ser usado no cinza: 0 0.125em 0.25em 0 rgba(46, 61, 73, 0.12);
 // box-shadow udacity no branco: 0.3125em 1.25em 0 rgba(46, 61, 73, 0.12);
 // box-shadow code-school padráo: 0 1px 1px rgba(0,0,0,0.3)
-
-//HEADER

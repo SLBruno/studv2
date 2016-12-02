@@ -1,51 +1,25 @@
-<div class="containertobottom">
-    <div class="youtubeplayer">
-         <h1 class="aulatitle"><%= @aula.title %></h1>
-         <iframe class="aulavideo" src="//www.youtube.com/embed/<%= @aula.video %>" frameborder="0" allowfullscreen></iframe>
-    <div class="row">
-    </div>
-        <div class="col-md-9 showcontentaula">
-            <div class="contentaula">
-                <p class="titulos"> Descrição da Aula </p>
-                <%= raw @aula.content %>
-            </div>
-            <%= render 'shared/disqus' %>
-        </div>
-    <div class="col-md-3 sidebar sidebaraula center">
-        <% if !@next_aula.nil? %>
-        <span class="btn btn-primary">
-        <%= link_to "Completar e Continuar",[@next_aula.curso, @next_aula], class:"btn-lg btn-primary buttonaula" %>
-        </span>
 
-         <span class="btn btn-primary">
-             <%= link_to([@next_aula.curso, @next_aula]) do %>
-             <% current_user.add_points(@aula.point) %>
-             <p>TESTE</p>
-             <% end %>
-        </span>
-
+  <header class="intro-header" style="background-image: url('https://static.pexels.com/photos/1139/black-and-white-city-skyline-buildings.jpg')">
+      <div class="header-container">
         <div class="row">
-            <div class="col-md-6 downloadsidebar">
-        <h1 class="glyphicon glyphicon-download" style="color:white;"></h1>
-        <p style="color:white;">DOWNLOADS</p>
-            </div>
-        <div class="col-md-6 discussionsidebar">
-            <h1 class="glyphicon glyphicon-cd" style="color:white;"></h1>
-            <p>DISCUSSÃO</p>
-        </div>
-        </div>
-
-        <div class="list-group noborder">
-                <% @aulas.each do |aula| %>
-                <% if aula.section_header == true %>
-                <a class="list-group-item active listaulaactive">
-                    <%= aula.title %></a>
-                <% else %>
-                <%= link_to aula.title, [aula.curso, aula], :class => "list-group-item" %>
-                <% end %>
-                <% end %>
-            <% end %>
-            </div>
-        </div>
+          <h1><%= @aula.title %></h1>
+          <h3>Aprenda marketing digital e progração de uma forma que você pode começar a aplicar ainda hoje!</h3>
+      </div>
     </div>
-</div>
+  </header>
+  <section id="show-aula-content">
+    <div class="content content-container">
+    <%= raw @aula.content %>
+    </div>
+  </section>
+  <section id="show-aula-comments">
+    <div class="content content-container">
+      <% if !@next_aula.nil? %>
+        <%= link_to "Completar e Continuar",[@next_aula.curso, @next_aula], class:"btn btn-highlight" %>
+      <% end %>
+    <hr>
+      <div class="panel panel-default">
+      <%= render 'shared/disqus' %>
+      </div>
+  </div>
+  </section>
