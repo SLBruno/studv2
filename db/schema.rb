@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160104195923) do
+ActiveRecord::Schema.define(version: 20160217174213) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -51,16 +51,29 @@ ActiveRecord::Schema.define(version: 20160104195923) do
     t.text     "content"
     t.string   "video"
     t.boolean  "section_header", default: false, null: false
-    t.string   "tag"
+    t.integer  "tag"
     t.integer  "curso_id"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
     t.integer  "point"
     t.integer  "time"
     t.string   "downloadlink"
+    t.string   "slug"
   end
 
   add_index "aulas", ["curso_id"], name: "index_aulas_on_curso_id"
+  add_index "aulas", ["slug"], name: "index_aulas_on_slug", unique: true
+
+  create_table "badges_sashes", force: :cascade do |t|
+    t.integer  "badge_id"
+    t.integer  "sash_id"
+    t.boolean  "notified_user", default: false
+    t.datetime "created_at"
+  end
+
+  add_index "badges_sashes", ["badge_id", "sash_id"], name: "index_badges_sashes_on_badge_id_and_sash_id"
+  add_index "badges_sashes", ["badge_id"], name: "index_badges_sashes_on_badge_id"
+  add_index "badges_sashes", ["sash_id"], name: "index_badges_sashes_on_sash_id"
 
   create_table "cursos", force: :cascade do |t|
     t.string   "name"
@@ -68,8 +81,8 @@ ActiveRecord::Schema.define(version: 20160104195923) do
     t.integer  "price"
     t.string   "image"
     t.string   "tag"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.string   "color"
     t.integer  "trilha_id"
     t.integer  "subtrilha_id"
@@ -79,10 +92,62 @@ ActiveRecord::Schema.define(version: 20160104195923) do
     t.string   "indexicon"
     t.integer  "point"
     t.text     "requeriment"
+    t.string   "slug"
+    t.string   "profname"
+    t.string   "proflink"
+    t.string   "profdescription"
+    t.string   "profimage"
   end
 
+  add_index "cursos", ["slug"], name: "index_cursos_on_slug", unique: true
   add_index "cursos", ["subtrilha_id"], name: "index_cursos_on_subtrilha_id"
   add_index "cursos", ["trilha_id"], name: "index_cursos_on_trilha_id"
+
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+
+  create_table "merit_actions", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "action_method"
+    t.integer  "action_value"
+    t.boolean  "had_errors",    default: false
+    t.string   "target_model"
+    t.integer  "target_id"
+    t.text     "target_data"
+    t.boolean  "processed",     default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "merit_activity_logs", force: :cascade do |t|
+    t.integer  "action_id"
+    t.string   "related_change_type"
+    t.integer  "related_change_id"
+    t.string   "description"
+    t.datetime "created_at"
+  end
+
+  create_table "merit_score_points", force: :cascade do |t|
+    t.integer  "score_id"
+    t.integer  "num_points", default: 0
+    t.string   "log"
+    t.datetime "created_at"
+  end
+
+  create_table "merit_scores", force: :cascade do |t|
+    t.integer "sash_id"
+    t.string  "category", default: "default"
+  end
 
   create_table "reviews", force: :cascade do |t|
     t.integer  "curso_id"
@@ -96,11 +161,20 @@ ActiveRecord::Schema.define(version: 20160104195923) do
   add_index "reviews", ["curso_id"], name: "index_reviews_on_curso_id"
   add_index "reviews", ["user_id"], name: "index_reviews_on_user_id"
 
+  create_table "sashes", force: :cascade do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "subscriptions", force: :cascade do |t|
     t.integer  "curso_id"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.text     "notification_params"
+    t.string   "status"
+    t.string   "transaction_id"
+    t.datetime "purchased_at"
   end
 
   add_index "subscriptions", ["curso_id", "user_id"], name: "index_subscriptions_on_curso_id_and_user_id", unique: true
@@ -130,6 +204,12 @@ ActiveRecord::Schema.define(version: 20160104195923) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "name"
+    t.string   "image"
+    t.string   "provider"
+    t.string   "uid"
+    t.integer  "sash_id"
+    t.integer  "level",                  default: 0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

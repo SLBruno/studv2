@@ -1,6 +1,6 @@
 <%= form_for([@curso, @review]) do |f| %>
-<%= f.text_field :star %> 
-<%= f.text_field :comment %>
+<p>Nota:<%= f.text_field :star, class:"form-control greatmargin" %></p>
+<p>Comentário: <%= f.text_field :comment, class:"form-control greatmargin" %></p>
 
 <%= f.hidden_field :curso_id, :value => @curso.id %>
 <%= f.hidden_field :user_id, :value => current_user.id %>
@@ -9,3 +9,4 @@
     <%= f.submit %> 
 </button>
 <% end %> 
+

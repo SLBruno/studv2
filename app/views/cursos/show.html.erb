@@ -1,85 +1,135 @@
 <p id="notice"><%= notice %></p>
 
+<% content_for :head do %>
+<title><%= @curso.name %> | Studd</title>
+	<!-- Twitter Card data -->
+	
+    <meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@Studd">
+	<meta name="twitter:creator" content="@Studd">
+	<meta name="twitter:title" content="<%= @curso.name %>">
+	<meta name="twitter:description" content="<%= @curso.content %>">
+	<meta name="twitter:image:src" content="<%= image_url @curso.image %>">
+
+	<!-- Open Graph data -->
+	<meta property="og:site_name" content="Studd">
+	<meta property="og:type" content="www.studd.com.br">
+	<meta property="og:title" content="<%= @curso.name %>">
+	<meta property="og:description" content="<%= @curso.content %>">
+	<meta property="og:image" content="<%= @curso.image %>">
+<% end %> 
+
+
 <div class="jumbotron" id="showjumbotron" style="background-color:<%= @curso.color %>;">
-    <div class="container">
+    <div class="container" id="showcontentcurso">
         <div class="col-sm-8">
             <h1><%= @curso.name %></h1>
-            <p><%= @curso.content %></p>
+            <p><%= truncate(@curso.content, :length => 200) %></p> 
             <h6>Público Alvo: qualquer pessoa que deseja aprender excel e que não tem conhecimento do software;</h6>
             <h6>Requerimentos: Nenhum</h6>
-        </div>
+                    <div class="col-md-3">
+                        <h2 class="numbershow"><%= @curso.average_rating %>/10</h2>
+                        <h5 class="textshow">Nota Geral</h5>     
+                    </div>
+                    <div class="col-md-3">
+                        <h2 class="numbershow"><% onlyaula = @aulas.where(:section_header => false) %><%= onlyaula.count %></h2>
+                        <h5 class="textshow">Número de Aulas</h5>  
+                    </div>   
+                    <div class="col-md-3">
+                        <h2 class="numbershow"><%= @aulas.sum(:time)/60 %></h2> 
+                        <h5 class="textshow">Minutos de Aula!</h5>    
+                    </div>
+                    <div class="col-md-3">
+                        <h2 class="numbershow"><%= @aulas.sum(:point) %></h2>
+                        <h5 class="textshow">Pontos Total</h5> 
+                    </div>
+                    </div>
         <div class="col-sm-4 showicon"><%= image_tag(@curso.icon) %></div>
     </div>
 </div>
+
 <div id="showdiv">
-    <div class="col-md-9 showcontent">
-        <div class="container" style="width:700px; content-align:center;">
-            <div class="list-group">
-                <% @aulas.each do |aula| %>
-                <% if aula.section_header == true %>
-                <a class="list-group-item active"> 
-                    <%= aula.title %></a>
-                <% else %>
-                <%= link_to aula.title, [aula.curso, aula], :class => "list-group-item" %>
+        <div class="col-md-9 showcontent">
+                <p class="titulos"> Descrição do Curso </p>
+                <p><%= @curso.content %></p> 
+            
+            
+                <p class="titulos"> Todas as Aulas </p>
+                    <div class="list-group noborder margin20">
+                        <% @aulas.each do |aula| %>
+                        <% if aula.section_header == true %>
+                        <a class="list-group-item active"> 
+                            <%= aula.title %></a>
+                        <% else %>
+                        <%= link_to aula.title, [aula.curso, aula], :class => "list-group-item" %>
+                        <% end %>
+                        <% end %> 
+                        </div>
+        </div>
+        
+        <div class="col-md-3 center cursosidebar">
+            <div class="buythecourse">
+                <% if !@joined %>
+                    <h3><%= @curso.price == 0? "Grátis" : "R$#{@curso.price}" %></h3>
+            
+                    <% if user_signed_in? %>
+                        <% if @curso.price == 0 %>
+                            <%= form_tag gratis_path do %>
+                            <%= hidden_field_tag 'curso_id', @curso.id %>
+                            <button type="submit" class="btn paymentbutton">Acessar este curso Gratuíto</button>
+                        <% end %>
+                        <% else %> 
+                            <%= form_tag payment_path, id:'chargeForm' do %>
+                            <%= hidden_field_tag 'curso_id', @curso.id %>
+                            <button type="submit" class="btn btn-primary paymentbutton">Comprar este curso Pago</button>
+                        <% end %> 
+                        <% end %>
+                    <% else %>
+                        <%= link_to new_user_session_path do %>
+                        <button type="submit" class="btn btn-primary paymentbutton">Faça Login para acessar!</button>
+                        <% end %>
+                    <% end %>
+                <% else %> 
+                    VOCÊ JÁ ESTÁ CADASTRADO NESTE CURSO NEGÃO!!
+                    <div class="progress">
+                    <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                <span class="sr-only" style="color:white">20% Complete</span>
+                    </div>  
+                </div>
+                <h6>Você já completou 20% do curso!</h6>
+                <% end %>    
+            </div>        
+        <div class="cursosidebartop">FUNCIONALIDADES</div>
+            <p>Downloads</p>
+            <p>Reviews</p>
+            
+        
+        <div class="cursosidebartop">SOBRE O PROFESSOR</div>
+            <div class="row">
+            <div class="col-md-4"> 
+                <%= image_tag(@curso.profimage) %>   
+            </div>
+            <div class="col-md-8">
+                <a href="<%=@curso.proflink %>" class="profname"><%= @curso.profname %></a>
+                <p class="profclass"><%= @curso.profdescription %></p>
+            </div>
+            </div>
+            
+            
+            <div class="cursosidebartop">INSCRITOS (<%= @users.count %>)</div>
+            <% @users.in_groups_of(4) do |group| %>
+                    <% group.each do |u| %>
+                    <div class="col-md-3">
+                            <%= image_tag (u.image), class: "circle responsive-img avatar-small cursoinsc" %>&nbsp;
+				    </div>
+					<% end %>
                 <% end %>
-                <% end %> 
+        <br />   
+        <div class="cursosidebartop"> ANÁLISE DO CURSO </div>
+        <br />   
+            <%= render 'shared/reviews' %>
             </div>
-        </div>
-    </div>
-
-<div class="col-md-3 sidebar center">
-
-    
-    <h2 class="numbershow"><% onlyaula = @aulas.where(:section_header => false) %><%= onlyaula.count %></h2>
-    <h3 class="textshow">Número de Aulas</h3>
-    
-    <h2 class="numbershow"><%= @aulas.sum(:time)/60 %></h2> 
-    <h3 class="textshow">Minutos de Aula!</h3>
-    
-    <h2 class="numbershow"><%= @aulas.sum(:point) %></h2>
-    <h3 class="textshow">Pontos Total</h3>
-    
-    <div class="progress">
-        <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
-        <span class="sr-only">20% Complete</span>
-        </div>
-    </div>
-    
-    <div class="row">
-            <div class="col-md-6 downloadsidebar">
-                <h1 class="glyphicon glyphicon-download" style="color:white;"></h1>
-                <p style="color:white;">DOWNLOADS</p>
-            </div>
-        <div class="col-md-6 discussionsidebar">
-            <h1 class="glyphicon glyphicon-cd" style="color:white;"></h1>    
-            <p>DISCUSSÃO</p>
-        </div>
-        </div>
-    
-    <div class="cursoreviews">
-         <div class="cursoreviewtop"> REVIEWS </div>
-         <%= render 'reviews/form' if @joined && !@hasReview %>
-         <%= render 'reviews/index' %>
-    </div>
-    
-    <span><%= @curso.average_rating %> <%= @reviews.count >1? "Reviews" : "Review" %> </span>
-    
-    <button>Teste!!</button>
-        <% if !@joined %>
-        <h3><%= @curso.price == 0? "Grátis" : "R$#{@curso.price}" %></h1>   
-        <% if user_signed_in? %>
-            <%= form_tag gratis_path do %>
-                <%= hidden_field_tag 'curso_id', @curso.id %> 
-                <button type="submit" class="btn btn-primary">Comprar este Curso</button>
-            <% end %>
-        <% else %>
-            <%= link_to new_user_session_path do %>
-            <button type="submit" class="btn btn-primary">Faça Login para acessar!</button>
-            <% end %>
-        <% end %>
-    
-     
-    </div>
+               
+     <%= link_to 'Voltar', cursos_path %>   
 </div>
-<% end %> 
-<%= link_to 'Back', cursos_path %>  
+

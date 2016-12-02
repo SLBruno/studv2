@@ -9,19 +9,31 @@
     </div>
 </div>
 
-<div id="indexdiv">
-<div class="container">
-    <div class="col-md-3 col-sm-12">
-        <h3>TEMAS</h3>
-        <p>Excel</p>
-        <p>Powerpoint</p>
-        <p>Photoshop</p>
-        <p>Illustrator</p>
-        <p>Excel</p>
+<div class="jumbotron" id="diftop">
+    <h2> DIFERENCIAL </h2>
+</div>
+<div class="jumbotron" id="difcontent">
+    <div class="container center">
+        <div class="col-md-4">
+                <h4>Linguagem</h4>
+                <h5>Cansado de tentar aprender com cursos chatos? Nós somos muito mais animados!</h5>
+        </div>
+        <div class="col-md-4">
+                <h4>Foco!</h4>
+                <h5>Você não precisa ver todos os cursos e passar por um monte de informação inútil! Descubra o que se aplica a sua profissão!</h5>
+        </div>
+        <div class="col-md-4">
+                <h4>Educação é TUDO!</h4>
+                <h5>20% de todo o faturamento do Stud é revertido para instituições sem fins lucrativos que apoiam a educação. Nós mostramos mês a mês como foi a doação <a href="www.teste.com.br">aqui.</a></h5>
+        </div>       
     </div>
-    <div class="col-md-9 col-sm-12">
-        <div class="container"> 
-        <% @cursos.in_groups_of(3) do |group| %>
+</div>
+
+<div id="indexdiv">
+<div class="container cursosshow">
+        <div class="container">
+        <h1 class="cursoshowtext" style="text-align:center;"> CURSOS </h1>
+        <% @cursos.in_groups_of(4) do |group| %>
         <div class="row">
         <% group.each do |curso| %>
           <% if curso %>
@@ -29,16 +41,16 @@
                 <div class="panel panel-default indexcolortop" style="background-color:<%= curso.color %>;"></div>
                 <div class="panel panel-default panelindex center">
                     <%= image_tag(curso.icon, class:'circleimgindex center') %>
-                  <p><%= link_to curso do %>
-                  <h3 id="cursonameindex"><%= curso.name %></h3></p>
+                  <p><%= link_to curso do %></p>
+                  <h3 id="cursonameindex"><%= curso.name %></h3>
                   <% end %>
-                      <p id="cursocontentindex"><%= curso.content %></p>
+                      <p id="cursocontentindex"><%= truncate(curso.content, :length => 110) %></p>
                         <div class="col-xs-6 indextime">
                         <b><%= curso.aulas.sum(:time)/360 %>h</b>
                         <p> de curso</p>
                         </div>
                         <div class="col-xs-6 indexsubs">
-                            <b>435</b>
+                            <b><%= curso.users.count %></b>
                         <p>Inscritos</p>
                         </div>
                   <button class="btn-lg btn-primary" id="indexcoursebutton" style="background-color:<%= curso.color %>;">COMEÇAR AGORA!</button>
@@ -51,25 +63,7 @@
         </div>
     </div>
 </div>
-<div class="jumbotron" id="diftop">
-    <h2> DIFERENCIAL </h2>
-</div>
-<div class="jumbotron" id="difcontent">
-    <div class="container center">
-            <div class="col-md-4">
-                <h4>Linguagem</h4>
-                <h5>Cansado de tentar aprender com cursos chatos? Nós somos muito mais animados!</h5>
-            </div>
-            <div class="col-md-4">
-                <h4>Foco!</h4>
-                <h5>Você não precisa ver todos os cursos,converse conosco e descubra o que se aplica a sua profissão!</h5>
-            </div>
-            <div class="col-md-4">
-                <h4>Educação é TUDO!</h4>
-                <h5>20% de todo o faturamento do Stud é revertido para instituições sem fins lucrativos que apoiam a educação. Nós mostramos mês a mês como foi a doação <a href="www.teste.com.br">aqui.</a></h5>
-            </div>
-    </div>
-</div>
+
 <div id="indexdiv">
     <div class="pricetitle">
         <h2 style="text-align:center;">TÁ, MAS QUANTO CUSTA?</h2>

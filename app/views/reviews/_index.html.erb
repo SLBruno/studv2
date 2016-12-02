@@ -1,17 +1,19 @@
 <% if @reviews.blank? %>
-<span class="center">Este curso ainda não tem nenhuma avaliação!</span>
+<span class="center"> Este curso ainda não tem nenhuma avaliação!</span>
+<% else %>
+<% @reviews.order("id desc").each do |f| %>
 
-<% @reviews.order("id DESC").each do |f| %>
-<hr>
-<div class="row">
-    <strong><%= r.user.name %></strong>
-    <span class="right"><%= r.create_at %></span>
-    <div><%= r.star %></div>
-    <div><%= r.comment %></div>
-    <div>
-        <%= link_to "Remover", [@curso, r], method: :delete, data: {confirm: "Você tem certeza que quer apagar este comentário?"} if current_user && current_user.id == r.user.id %>
+<div class="reviewbox">
+    <div class="col-md-9">
+        <strong><%= f.user.name %>(<%= f.star %>)</strong>
+        <p><small>"<%= f.comment %>"</small></p>
     </div>
+    
+    <div class="col-md-3">
+        <%= image_tag (f.user.image), alt: "", class:"cursoinsc" %>
+    </div>
+        <%= link_to "Remover", [@curso, f], method: :delete, data: {confirm: "Você tem certeza que quer apagar este comentário?"} if current_user && current_user.id == f.user.id %>
+    <hr> 
 </div>
-
-<% end %>
+<% end %> 
 <% end %>

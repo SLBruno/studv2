@@ -1,0 +1,20 @@
+<div class="panel panel-default aulacontent center disqus">
+<div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = PAGE_URL; 
+        this.page.identifier = '<%= @aula.id %>' ; 
+        this.page.shortname = '<%= @aula.title %>';
+        this.page.title = '<%= @aula.title %>' ; 
+    };
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        
+        s.src = '//studbr.disqus.com/embed.js';
+        
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>

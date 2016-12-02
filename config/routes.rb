@@ -3,14 +3,21 @@ Rails.application.routes.draw do
   #devise code!    
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  devise_for :users
+    devise_for :users, 
+                :path => '', 
+                :path_names => {:sign_in => "login", :sign_out => "deslogar", :edit => "perfil"},
+                :controllers => {:omniauth_callbacks => 'omniauth_callbacks'}
   
   post '/gratis' => 'charge#free'
+  post '/pago' => 'charge#pago'
+  post '/payment' => 'charge#payment'
   get '/meuscursos' => 'cursos#list'
-  
     
+  get '/subscriptions/:id' => "charge#show"
+  post '/hook' => "charge#hook"
+
    resources :cursos do
-       resources :aula, only: [:show]
+       resources :aula, only: [:show, :next_aula_point]
     end 
     
     resources :curso do

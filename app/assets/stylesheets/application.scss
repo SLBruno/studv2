@@ -3,8 +3,13 @@
 @import "bootstrap";
 
 // GERAL
+html, body {
+    height: 100%;
+    background-color: #e8e8e8;
+}
+
 .h1 h2 h3 h4 h5 h6 p li {
-    font-family:sans-serif;
+    font-family: "roboto";
 }
 
 .center {
@@ -12,6 +17,16 @@
     align-content: center;
     align-items: center;
     text-align: center; 
+}
+
+.contentaula {
+    margin-bottom: 30px; 
+}
+
+.header {
+    background-color: #010c12;
+    border: none;
+    border-radius: 0px;
 }
 
 
@@ -31,18 +46,42 @@
 
 }
 
+.containertobottom {
+    display:table;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-top: -20px;
+}
+
+.aulatitle {
+    padding: 10px; 
+}
+
+#footer {
+    background-color: #252830;
+    height: auto;
+    padding: 0;
+    border: none;
+}
+
+#footernavbar {
+    padding:inherit;
+    border: none;
+    
+}
 // INDEX (PÁGINA PRINCIPAL)
 
 #indexjumbotron { 
     margin-top:-75px;
     background-image:url(estudar.jpg); 
-    height: 400px;
+    height: 450px;
     margin-bottom: 0px; 
 }
 
 .indextitle {
     color:white;
     text-shadow: 0 1px 2px rgba(0,0,0,0.16), 0 1px 2px rgba(0,0,0,0.23);
+    margin-top: 50px; 
     
 }
 
@@ -117,8 +156,8 @@
     margin-left: 0px;
     margin-top: 0px; 
     margin-bottom: 0px;
-    border-top-left-radius: 30px; 
-    border-top-right-radius: 30px;
+    border-top-left-radius: 0px; 
+    border-top-right-radius: 0px;
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
     border: none;
@@ -135,8 +174,8 @@
     height: 365px;
     border-top-left-radius: 0px; 
     border-top-right-radius: 0px;
-    border-bottom-left-radius: 30px; 
-    border-bottom-right-radius: 30px; 
+    border-bottom-left-radius: 0px; 
+    border-bottom-right-radius: 0px; 
     border: none; 
     
     
@@ -170,7 +209,8 @@
 }
 
 #diftop {
-    background-color: darkred;
+    background-color: #333333;
+    opacity: 0.9; 
     color: white;
     height: 75px;
     padding: 0px;
@@ -188,8 +228,9 @@
 }
 
 #difcontent {
-    background-color:indianred;
+    background-color:#2f323a;
     color: white;
+    opacity: 0.7; 
     margin-bottom: 0px; 
     
     h2 {
@@ -295,15 +336,21 @@
     font-weight: 800;
 }
 
+.titulos {
+    font-weight: 600;
+    font-size: 20px;
+    border-bottom: 1px solid lightgrey; 
+}
+
 //SHOW CURSO PAGE
 
 #showdiv {
-    background-color:#e8e8e8;
-    padding-top: 50px;
-    padding-bottom: 75px; 
+    background-color:#e8e8e8; 
     margin-bottom: 0px;
-    padding: 0px;
-    width: auto; 
+    width: 100%;
+    display:table;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .showicon { 
@@ -327,20 +374,45 @@
     background-color:darkgray;
     padding: 20px; 
 }
+ 
+#showcontentcurso {
+    width: 85%
+}
+
+
+.cursoshowtext {
+    font-weight: 800;
+    font-size: 65px;
+    margin-bottom: 30px; 
+}
 
 .showcontent {
-    padding-top: 35px;
-    background-color: #E8E8E8; 
+    border-radius:0px;
+    background-color: #e8e8e8;
+    height: auto;
+    margin-top: -20px;
+    padding: 30px;  
 }
 
 .list-group{
     box-sizing:border-box;  
 }
-
+ 
 .sidebar { 
-    background-color:#202F3A; 
-    height: 1000px;
-    padding-top: 35px;    
+    background-color:#010c12;
+    margin-top: -20px; 
+    height: 100%;
+    z-index: 1;
+    padding: 0px 0px 100px 0px; 
+} 
+
+.cursosidebar {
+    background-color:#010c12;
+    margin-top: -20px;
+    padding-bottom: 800px; 
+    height: inherit;    
+    z-index: 1;
+    position: relative;
 }
 
 .list-group-item {
@@ -357,23 +429,106 @@
 .numbershow { 
     color: white;
     font-weight: 800;
-    margin-bottom: -10px; 
+    margin-bottom: -10px;
+    text-align: center; 
+}
+
+.smalltext {
+    margin-top:-10px; 
 }
 
 .textshow {
-    color: deepskyblue;
+    color: white;
     border-bottom-color: darkgrey;
-    border: 1px 
+    border: 1px;
+    text-align: center; 
 }
 
 .cursoreviewtop {
     background-color: #2db2eb;
-    color: white; 
+    color: white;
+    margin: -20px;
+    border: none;
+    margin-bottom: 30px;
+    
+}
+
+.buythecourse {
+    background-color: #055884;
+    color: white;
+    height: 200px;
+    margin: 0px -15px 0px -15px; 
+    padding: 20px;  
+}
+
+.paymentbutton {
+    border: none;
+    border-radius: none;
+    background-color: #DE521E; 
+}
+
+.progress {
+    margin-top: 35px; 
+}
+
+.cursoinsc {
+    width: 50px; 
+    height: 50px;
+    border-radius: 50px;
+}
+
+.margintop10 {
+    margin-top: 10px; 
+}
+
+.cursosidebartop {
+    color: white;
+    margin: 10px 0px 10px 0px; 
+    text-align: left;
+    border: none;
+    box-shadow: none;
+    border-bottom: none; 
+    height: 40px;
+    font-weight: 200;
+    font-size: 20px;
+    padding: 10px;
+    paddint-right: 30px;
 }
 
 .cursoreviews {
-    color: white; 
+    color: white;
+    border: 1px solid white; 
     
+}
+
+.reviewbox {
+    color: gray;
+    margin-bottom: 15px;
+    font-align: justify; 
+    
+    strong {
+        text-align:left;
+        font-weight:800;
+        font-size: 14px;
+    }
+    star {
+        text-align:right;
+    }
+    
+    hr {
+        margin: 1px;
+        colot: gray; 
+    }
+}
+
+.greatmargin {
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px; 
+    max-width: 250px;
+    align-content: center;
+    position: relative; 
 }
 
 // SHOW AULA PAGE
@@ -381,35 +536,67 @@
 .showcontentaula {
     content-align: center;
     margin-top:-20px;
-    border-radius:0px;
+    border-radius: 0px;
     background-color: #e8e8e8;
-    height: inherit;
+    padding: 30px;
+}
+   
+.sidebaraula { 
+    background-color:#010c12;
+    height: 100%; 
+    padding-top: 50px;
+    margin-top: -20px;
+    padding-bottom: 1200px;
+    padding-right: 30px; 
+
 }
 
-.sidebaraula { 
-    background-color:#202F3A; 
-    height: 1000px;
-    padding-top: 35px;
-    margin-top:-20px;
+.panelsidebarshowcurso {
+    background-color: #1b3e51; 
+    border: none;
+    border-radius: 0px;
+    margin-top: 20px;
+    padding: 5px;
+}
+
+.noborder {
+    border-radius: 0px;
+    margin-left: 15px;
+    border: none;
 }
 
 .aulavideo {
-    width: auto;
-    height: 400px;
-    background-color: darkolivegreen;
+    width: 100%;
+    height: 500px;
 
 }
 .aulacontent {
     text-align: left;
     border-radius: 0px;
-    padding: 10px; 
-    
+    padding: 10px;
+}
+
+.margin20 {
+    margin: 20px; 
+    align-self: center; 
+}
+
+.cursocontent {
+    text-align: left;
+    border-radius: 0px;
+    padding: 10px;    
 }
 
 .listaulaactive {
-    margin-left:-15px; 
-    
+    margin-left:-15px;
+    background-color: #022538; 
 }
+
+.list-group-item.active{
+    background-color: #022538;
+    border: none; 
+}
+
 
 .buttfoonaula {
     margin-bottom: 25px; 
@@ -436,3 +623,18 @@
     margin-bottom: 0px;
     max-width: 3000px; 
 }
+
+.disqus {
+    padding: 10px; 
+}
+
+
+// FOOTER
+
+.footertext {
+    margin: 5px;
+    margin-top: 20px; 
+    padding: 5px; 
+}
+
+

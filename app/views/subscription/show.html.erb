@@ -1,0 +1,11 @@
+
+<title>Course Invoice</title>
+    <div>
+            Nome do Curso <%= @subscription.curso.name %>
+            Preço: <%= @subscription.curso.price %>
+            Usuário: <%= @subscription.user.email %> 
+            status: <%= @subscription.status %>
+            Comprado em: <%= @subscription.purchased_at %>
+            ID de transação: <%= @subscription.transaction_id %>
+     </div>   
+        
