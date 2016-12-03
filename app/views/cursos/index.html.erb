@@ -45,7 +45,7 @@
                   <div class="panel panel-default index-panel">
                       <!--<%= image_tag(curso.icon, class:'circleimgindex center') %>-->
                     <%= link_to curso do %>
-                    <h3><%= curso.name %></h3>
+                    <h3 class="course-title"><%= curso.name %></h3>
                     <% end %>
                     <p class="index-course-content"><%= truncate(curso.content, :length => 110) %></p>
                     <hr>
@@ -57,7 +57,7 @@
                         <b><%= curso.users.count %></b> Inscritos
                       </div>
                     </div>
-                    <button class="btn btn-highlight" > COMEÇAR AGORA!</button>
+                    <%= button_to "ACESSE AGORA!", curso, class:"btn btn-highlight", method: :get %>
                   <% end %>
                   </div>
                 </div>

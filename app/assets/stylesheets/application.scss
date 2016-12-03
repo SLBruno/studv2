@@ -162,8 +162,9 @@ h1, h2, h3 {
 
 //INDEX COURSES
 
-#index-courses {
+#index-courses, #show-course-content, .background {
   background-color: $grey;
+  min-height: 800px;
 }
 
 .circleimgindex {
@@ -176,13 +177,14 @@ h1, h2, h3 {
 
 .index-panel {
   padding: 20px 40px 30px 40px;
-  height: 310px;
+  height: 340px;
     h3 {
       color: #363636;
       margin-bottom: 20px;
     }
     h3, p {
       text-align: center;
+      height: 52px;
     }
 
 
@@ -194,11 +196,11 @@ h1, h2, h3 {
 
 .btn-highlight {
   margin: auto;
-  margin-top:35px;
+  margin-top:40px;
   display: block;
   background-color: $blue;
   color: white;
-  font-size: 1.2em;
+  font-size: 1.3em;
   font-weight: 600;
 }
 
@@ -216,17 +218,21 @@ h1, h2, h3 {
 }
 
 .show-course-info-row {
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
 }
 
 #show-course-header {
-  background-color: $grey;
+}
+
+#show-course-content {
+  padding-top: 10px;
 }
 
 .border-circle {
   border-radius: 30px;
-  border: 1px solid rgba(150, 150, 150, 0.8);font-weight: 600;
-  color: #9C9C9C;
+  border: 0.5px solid rgba(79, 79, 79, 0.8);
+  font-weight: 300;
+  color: #4F4F4F;
   float: left;
   width: 27px;
   text-align: center;
@@ -236,7 +242,26 @@ h1, h2, h3 {
   padding: 4px;
 }
 
+
+.link-aula {
+  decoration: none;
+  font-size: 1.25em;
+  color: #4F4F4F !important;
+}
+
+.aulas-header {
+  margin-top: 50px;
+}
+
+.panel-show-course {
+  margin-top: 50px;
+  height: 250px;
+  padding-top: 50px
+}
+
 // SHOW AULA
+
+
 
 .content-container {
   width: 750px;

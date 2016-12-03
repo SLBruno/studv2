@@ -1,36 +1,36 @@
-<h1>Meus Cursos!</h1>
+<div class="background">
+  <div class="container">
+    <h1 class='center' style="margin-bottom: 40px; margin-top:40px;">Meus Cursos!</h1>
 
-<div class="row">
-<br/>
-    
+
     <% if @cursos.count > 0 %>
-        <div class="container"> 
+        <div class="container">
         <% @cursos.in_groups_of(3) do |group| %>
         <div class="row">
         <% group.each do |curso| %>
           <% if curso %>
-            <div class="col-md-3 col-sm-6 col-xs-12 center">
-                <div class="panel panel-default indexcolortop" style="background-color:<%= curso.color %>;"></div>
-                <div class="panel panel-default panelindex center">
-                    <%= image_tag(curso.icon, class:'circleimgindex center') %>
-                  <p><%= link_to curso do %>
-                  <h3 id="cursonameindex"><%= curso.name %></h3></p>
-                  <% end %>
-                      <p id="cursocontentindex"><%= curso.content %></p>
-                        <div class="col-xs-6 indextime">
-                        <b><%= curso.aulas.sum(:time)/360 %>h</b>
-                        <p> de curso</p>
-                        </div>
-                        <div class="col-xs-6 indexsubs">
-                            <b><%= @users.curso.count %></b>
-                        <p>Inscritos</p>
-                        </div>
-                  <button class="btn-lg btn-primary" id="indexcoursebutton" style="background-color:<%= curso.color %>;">COMEÇAR AGORA!</button>
+          <div class="col-md-4 col-sm-6 col-xs-12">
+              <div class="panel panel-default index-panel">
+                  <!--<%= image_tag(curso.icon, class:'circleimgindex center') %>-->
+                <%= link_to curso do %>
+                <h3><%= curso.name %></h3>
                 <% end %>
+                <p class="index-course-content"><%= truncate(curso.content, :length => 110) %></p>
+                <hr>
+                <div class="row">
+                  <div class="col-xs-6 center">
+                    <b><%= curso.aulas.sum(:time)/360 %>h</b> de curso
+                  </div>
+                  <div class="col-xs-6 center">
+                    <b><%= curso.users.count %></b> Inscritos
+                  </div>
+                </div>
+                <button class="btn btn-highlight" > COMEÇAR AGORA!</button>
+              <% end %>
                 </div>
               </div>
           <% end %>
-         </div>         
+         </div>
         <% end %>
     <% else %>
     <div class="center">
@@ -38,4 +38,6 @@
         <%= link_to "Encontrar Cursos", root_path, class: "btn-lg btn-primary" %>
     </div>
     <% end %>
-        </div>
+      </div>
+    </div>
+</div>
