@@ -1,31 +1,46 @@
-<h2>Sign up</h2>
+<div class="background">
+  <div class="container">
+    <h2 class="center" style="margin-top: 40px; margin-bottom: 40px;"> Ficou interessado nos Cursos? Inscreva-se! </h2>
 
-<%= link_to "Inscrever-se com Facebook", user_omniauth_authorize_path(:facebook), class: "btn btn-primary" %> 
+    <div class="col-md-6 col-xs-12">
+      <h3> Benefícios do Inscrito </h3>
+      <ul>
+        <li> Acesso a todos os cursos de forma gratuita;  </li>
+        <li> Tenha controle de que cursos você está inscrito;</li>
+        <li> Seja avisado antes do que todos sobre novos cursos e atualizações; </li>
+        <li> No futuro, será capaz de continuar de onde parou ("última lição") e receber pontos por lições concluídas; </li>
+      </ul>
+    </div>
+    <div class="col-md-6 col-xs-12">
+      <div class="panel panel-default" style="padding:20px;">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= devise_error_messages! %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+          <div class="input-group">
+            <%= f.label :email, class:"input-group-addon" %>
+            <%= f.email_field :email, autofocus: true, class:"form-control" %>
+          </div>
+          <p></p>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+          <div class="input-group">
+            <%= f.label :senha, class:"input-group-addon" %>
+            <%= f.password_field :password, autocomplete: "off", class:"form-control" %>
+          </div>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> caracteres, no mínimo)</em>
+          <% end %>
+          <br /><p></p>
+
+          <div class="input-group">
+            <%= f.label :confirmação_de_senha, class:"input-group-addon" %>
+            <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control" %>
+          </div>
+
+          <div class="actions">
+            <%= f.submit "Me Inscrever", class:"btn btn-highlight" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

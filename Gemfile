@@ -21,6 +21,7 @@ gem 'friendly_id', '~> 5.1'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'merit', '~> 2.3', '>= 2.3.2'
+gem 'ckeditor', '~> 4.2'
 
 group :development, :test do
   gem 'byebug'
@@ -31,7 +32,5 @@ end
 
 group :production do
 	gem 'pg'
-	gem 'rails_12factor'     
+	gem 'rails_12factor'
 end
-
-

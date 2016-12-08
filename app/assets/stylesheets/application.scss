@@ -15,6 +15,15 @@ $darker-grey: #697681;
 * {
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
+  font-size: 1em;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+h2 {
+  font-size: 2.5em; 
 }
 
 h1, h2, h3 {
@@ -138,6 +147,15 @@ h1, h2, h3 {
   }
 }
 
+.notice {
+  background-color: $blue;
+  position: absolute;
+  z-index: 10;
+  color: white;
+  align-items: right;
+  size: 2em;
+}
+
 // SUB-HEADER
 
 .index-subheader-left {
@@ -157,7 +175,7 @@ h1, h2, h3 {
   width: 500px;
   align-text: center;
   margin: auto;
-  padding: 75px;
+  padding: 50px;
 }
 
 //INDEX COURSES
@@ -264,13 +282,13 @@ h1, h2, h3 {
 
 
 .content-container {
-  width: 750px;
-  margin: auto;
+  max-width: 750px;
+  margin: 0 auto;
   margin-top: 50px;
 }
 
 #disqus_thread {
-  padding: 15p;
+  padding: 15px;
 }
 
 

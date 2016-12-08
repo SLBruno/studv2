@@ -15,4 +15,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require jquery.timeago
+//= require ckeditor/init
 //= require_tree .

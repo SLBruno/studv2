@@ -1,4 +1,4 @@
-<p class="notice"><%= notice %></p>
+
 
 <% content_for :head do %>
 <title><%= @curso.name %> | Studd</title>
@@ -30,19 +30,19 @@
 			</div>
 		</div>
 		<div class="row show-course-info-row">
-			<div class="col-md-3">
+			<div class="col-md-3 col-xs-6">
 					<h2><%= @curso.average_rating %>/10</h2>
 					<h5>Nota Geral</h5>
 			</div>
-			<div class="col-md-3">
+			<div class="col-md-3 col-xs-6">
 					<h2><% onlyaula = @aulas.where(:section_header => false) %><%= onlyaula.count %></h2>
 					<h5>Número de Aulas</h5>
 			</div>
-			<div class="col-md-3">
+			<div class="col-md-3 col-xs-6">
 					<h2><%= @aulas.sum(:time)/60 %></h2>
 					<h5>Minutos de Aula!</h5>
 			</div>
-			<div class="col-md-3">
+			<div class="col-md-3 col-xs-6">
 					<h2><%= @aulas.sum(:point) %></h2>
 					<h5>Pontos Total</h5>
 			</div>

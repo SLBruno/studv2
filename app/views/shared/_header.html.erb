@@ -17,11 +17,10 @@
             </ul>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">Cursos</a></li>
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">Como Funciona?</a></li>
+          <li><a href="http://medium.com">Blog</a></li>
+          <li><a href="">Como Funciona?</a></li>
+          <li><a href="">Contato</a></li>
             <% if(!user_signed_in?) %>
-            <li><%= link_to "Criar Conta", new_user_registration_path %></li>
               <li><%= link_to "Login", new_user_session_path %></li>
             <% else %>
               <li class="dropdown">

@@ -3,7 +3,7 @@
       <div class="header-container">
         <div class="row">
           <h1><%= @aula.title %></h1>
-          <h3>Aprenda marketing digital e progração de uma forma que você pode começar a aplicar ainda hoje!</h3>
+          <h3>Aprenda marketing digital e programação de uma forma que você pode começar a aplicar ainda hoje!</h3>
       </div>
     </div>
   </header>
@@ -15,7 +15,7 @@
   <section id="show-aula-comments">
     <div class="content content-container">
       <% if !@next_aula.nil? %>
-        <%= link_to "Completar e Continuar",[@next_aula.curso, @next_aula], class:"btn btn-highlight" %>
+        <%= link_to "Próxima Aula",[@next_aula.curso, @next_aula], class:"btn btn-highlight" %>
       <% end %>
     <hr>
       <div class="panel panel-default">
