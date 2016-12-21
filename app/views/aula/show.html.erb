@@ -9,7 +9,7 @@
   </header>
   <section id="show-aula-content">
     <div class="content content-container">
-    <%= raw @aula.content %>
+    <%= render file: "/aulas-html/#{@aula.content}" %>
     </div>
   </section>
   <section id="show-aula-comments">
