@@ -5,7 +5,7 @@ class CreateAulas < ActiveRecord::Migration
       t.text :content
       t.string :video
       t.boolean :section_header, :null => false, :default => false
-      t.string :tag
+      t.integer :tag
       t.references :curso, index: true, foreign_key: true
 
       t.timestamps null: false
