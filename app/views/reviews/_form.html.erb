@@ -1,12 +1,26 @@
-<%= form_for([@curso, @review]) do |f| %>
-<p>Nota:<%= f.text_field :star, class:"form-control greatmargin" %></p>
-<p>Comentário: <%= f.text_field :comment, class:"form-control greatmargin" %></p>
+<div class="padding">
 
-<%= f.hidden_field :curso_id, :value => @curso.id %>
-<%= f.hidden_field :user_id, :value => current_user.id %>
+  <small>Já fez um pouco do curso? Deixe sua nota e comentário!!
+  Isso ajuda a continuarmos melhorando.</small>
+  </br>
+  </br>
+  <%= form_for([@curso, @review]) do |f| %>
 
-<button class="btn btn-primary" style="color:black;">
-    <%= f.submit %> 
-</button>
-<% end %> 
+  <div class="input-group">
+    <%= f.label :Nota, class:"input-group-addon" %>
+    <%= f.number_field :star, in: 1..10, step:1, class:"form-control" %></p>
+  </div>
+  </br>
+  <div class="input-group">
+    <%= f.label :Comentário, class:"input-group-addon" %>
+    <%= f.text_area :comment, class:"form-control" %>
+  </div>
 
+  <%= f.hidden_field :curso_id, :value => @curso.id %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+
+  <buttons>
+      <%= f.submit "Enviar Comentário", class:"btn btn-highlight" %>
+  </button>
+  <% end %>
+</div>

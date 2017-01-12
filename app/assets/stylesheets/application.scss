@@ -20,15 +20,35 @@ $darker-grey: #697681;
 
 h1 {
   font-size: 3em;
+  @media (max-width: 480px) {
+  font-size: 2em;
+  }
 }
 
 h2 {
   font-size: 2.5em;
+  @media (max-width: 650px) {
+  font-size: 1.5em;
+  }
+}
+
+h3 {
+  font-size: 2em;
+  @media (max-width: 650px) {
+  }
+}
+
+h4 {
+  font-size: 1.5em;
+  @media (max-width: 650px) {
+  font-size: 1em;
+  }
 }
 
 h1, h2, h3 {
   font-weight: 600;
 }
+
 
 .center {
   text-align: center;
@@ -51,6 +71,12 @@ h1, h2, h3 {
   margin-bottom: 0px;
   height: 80px;
   padding: 15px;
+}
+
+.navbar-default .navbar-brand,
+#bs-example-navbar-collapse-1 > ul.nav.navbar-nav.navbar-right {
+  background-color: white;
+  border: 0px;
 }
 
 .navbar-default .navbar-brand,
@@ -83,6 +109,15 @@ h1, h2, h3 {
   max-width: 1200px;
 }
 
+.userimg {
+  border-radius: 50px;
+  margin: 0 auto;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  height: 100%;
+  padding: 15px;
+}
 
 //INDEX STYLES
 
@@ -95,7 +130,6 @@ h1, h2, h3 {
   background-image: url('header');
   position: relative;
   opacity: 1;
-  height: 375px;
   bottom: 0;
   left: 0;
   right: 0;
@@ -108,6 +142,9 @@ h1, h2, h3 {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
+  @media (max-width: 600px){
+    padding:30px;
+  }
 }
 
 .intro-header::before {
@@ -131,6 +168,10 @@ h1, h2, h3 {
   box-sizing: border-box;
 }
 
+.index-header {
+  min-height: 375px;
+}
+
 .header-container {
   z-index: 3;
   opacity: 1;
@@ -138,7 +179,7 @@ h1, h2, h3 {
   text-shadow: 0 1px 1px rgba(0,0,0,0.3);
   position: relative;
 
-  h1, h3 {
+  h1, h3, h4 {
     color:white;
   }
 
@@ -187,6 +228,7 @@ h1, h2, h3 {
 #index-courses, #show-course-content, .background {
   background-color: $grey;
   min-height: 800px;
+  padding-top: 50px;
 }
 
 .circleimgindex {
@@ -197,23 +239,28 @@ h1, h2, h3 {
     align-items: right;
 }
 
+.panel-padding {
+  padding: 5px;
+}
+
 .index-panel {
-  padding: 20px 40px 30px 40px;
+  padding: 20px 30px 30px 30px;
   height: 340px;
+  border: 0px;
     h3 {
       color: #363636;
       margin-bottom: 20px;
+      font-size: 1.5em;
     }
     h3, p {
       text-align: center;
       height: 52px;
     }
 
-
 }
 
 .index-course-content {
-  height: 60px;
+  min-height: 70px;
 }
 
 .btn-highlight {
@@ -241,9 +288,6 @@ h1, h2, h3 {
 
 .show-course-info-row {
   margin-bottom: 20px;
-}
-
-#show-course-header {
 }
 
 #show-course-content {
@@ -283,16 +327,89 @@ h1, h2, h3 {
 
 // SHOW AULA
 
+#show-aula-content {
+  p {
+    font-size: 1.25em;
+    margin-bottom: 1.25em;
+    line-height: 1.5em;
+  }
+  h3 {
+    margin-bottom: 30px; 
+  }
+}
 
+.show-aula-header {
+  max-height: 375px;
+  @media (max-width: 650px) {
+    max-height: 200px;
+  }
+}
 
 .content-container {
   max-width: 750px;
   margin: 0 auto;
   margin-top: 50px;
+  @media (max-width: 750px) {
+    padding: 20px;
+  }
 }
 
 #disqus_thread {
   padding: 15px;
+}
+
+//Review div
+
+.panel-review {
+  min-height: 350px;
+  padding: 20px;
+}
+
+.inside-review {
+  text-align: left;
+  strong, small, p, h6 {
+    text-decoration: none;
+    @media (max-width: 768px) {
+      text-align: center;
+      align-content: center;
+    }
+  }
+}
+
+//FOOTER
+
+#footer {
+  background-color: #2a2730;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  color: $grey;
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
+  a:hover {
+    background-color: transparent;
+    border: none;
+  }
+}
+
+.footer-links {
+  display: flex;
+  margin-right: 30px;
+}
+//SHORTCODES
+
+.box {
+  padding: 15px;
+}
+
+.box-grey {
+  background-color: #ececec;
+}
+
+.box-red {
+  background-color: red;
 }
 
 

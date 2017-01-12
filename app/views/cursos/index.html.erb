@@ -1,14 +1,21 @@
 <main class="content">
-  <header class="intro-header" style="background-image: url('https://static.pexels.com/photos/1139/black-and-white-city-skyline-buildings.jpg')">
+  <header class="intro-header index-header" style="background-image: url('https://static.pexels.com/photos/1139/black-and-white-city-skyline-buildings.jpg')">
       <div class="header-container">
         <div class="row">
-          <h1> Coloque seus projetos em Prática!</h1>
-          <h3>Aprenda marketing digital e progração de uma forma que você pode começar a aplicar ainda hoje!</h3>
-      </div>
+          <div class="col-md-4">
+            <%= image_tag("pug2.png") %>
+          </div>
+          <div class="col-md-8">
+            <div class="row">
+              <h1> Coloque seus projetos em Prática!</h1>
+              <h4>Aprenda marketing digital e programação de uma forma que você pode começar a aplicar ainda hoje!</h4>
+          </div>
+        </div>
     </div>
   </header>
   <div class="clearfix"></div>
-  <section id="index-subheader">
+
+  <!-- <section id="index-subheader">
     <div class="col-md-6 col-xs-12 index-subheader-left">
       <div class="half-container">
         <h2> Marketing Digital </h2>
@@ -38,14 +45,15 @@
       </div>
     </div>
   </section>
+-->
   <section id="index-courses">
     <div class="container">
-      <h1 style="text-align: center; margin-bottom: 40px; font-size: 3.5em;"> CURSOS </h1>
-          <% @cursos.in_groups_of(3) do |group| %>
+      <!--<h1 style="text-align: center; margin-bottom: 40px; font-size: 3.5em;"> CURSOS </h1>-->
+          <% @cursos.in_groups_of(4) do |group| %>
           <div class="row">
           <% group.each do |curso| %>
             <% if curso %>
-              <div class="col-md-4 col-sm-6 col-xs-12">
+              <div class="col-md-3 col-sm-6 col-xs-12 panel-padding">
                   <div class="panel panel-default index-panel">
                       <!--<%= image_tag(curso.icon, class:'circleimgindex center') %>-->
                     <%= link_to curso do %>
@@ -55,7 +63,7 @@
                     <hr>
                     <div class="row">
                       <div class="col-xs-6 center">
-                        <b><%= curso.aulas.sum(:time)/360 %>h</b> de curso
+                        <b><%= curso.aulas.sum(:time)/60 %>h</b> de curso
                       </div>
                       <div class="col-xs-6 center">
                         <b><%= curso.users.count %></b> Inscritos
@@ -71,5 +79,4 @@
           </div>
       </div>
   </div>
--->
 </main>

@@ -25,22 +25,25 @@
 			<div class="col-md-8">
 				<h1><%= @curso.name %></h1>
 				<p><%= truncate(@curso.content, :length => 200) %></p>
-				<h6>Público Alvo: qualquer pessoa que deseja aprender excel e que não tem conhecimento do software;</h6>
-				<h6>Requerimentos: Nenhum</h6>
+        <br />
+				<h6><b>Público Alvo:</b> <%= @curso.public %></h6>
+				<h6><b>Requerimentos:</b><%= @curso.requeriment %> </h6>
+        <br />
 			</div>
 		</div>
 		<div class="row show-course-info-row">
 			<div class="col-md-3 col-xs-6">
 					<h2><%= @curso.average_rating %>/10</h2>
-					<h5>Nota Geral</h5>
+          <h5><%= @curso.reviews.count %> avaliações</h5>
 			</div>
 			<div class="col-md-3 col-xs-6">
-					<h2><% onlyaula = @aulas.where(:section_header => false) %><%= onlyaula.count %></h2>
+					<!-- botar esse linha de código no modelo -->
+          <h2><% onlyaula = @aulas.where(:section_header => false) %><%= onlyaula.count %></h2>
 					<h5>Número de Aulas</h5>
 			</div>
 			<div class="col-md-3 col-xs-6">
-					<h2><%= @aulas.sum(:time)/60 %></h2>
-					<h5>Minutos de Aula!</h5>
+					<h2><%= @aulas.sum(:time)/60 %>h</h2>
+					<h5>Tempo de Curso </h5>
 			</div>
 			<div class="col-md-3 col-xs-6">
 					<h2><%= @aulas.sum(:point) %></h2>
@@ -93,25 +96,24 @@
 									<% end %>
 							<% end %>
 					<% else %>
-          <%= image_tag('http://interactive.sunmedia.ca/2015-03-emoticons/images/happy.png', size: "100" ) %>
+          <%= image_tag('happy.png', size: "100" ) %>
           <h4 style="text-align: center;">Você já se inscreveu nesse curso!</h4>
           <%= link_to "Meus Cursos", meuscursos_path %>
 
 					<% end %>
 			</div>
 
-
-
+      <div class="panel panel-default panel-review">
+        <h3><b> ANÁLISE DO CURSO </b></h3>
+      <br />
+          <%= render 'shared/reviews' %>
+      </div>
 </section>
+
+<br />
 
 
 <!--
-<br />
-<div class="cursosidebartop"> ANÁLISE DO CURSO </div>
-<br />
-    <%= render 'shared/reviews' %>
-    </div>
-
 <div id="showdiv">
         <div class="col-md-9 showcontent">
                 <p class="titulos"> Descrição do Curso </p>
