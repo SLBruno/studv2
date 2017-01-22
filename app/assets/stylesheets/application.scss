@@ -453,6 +453,13 @@ h1, h2, h3 {
   text-align: center;
 }
 
+#show-aula-comments > div > div.row > div.col-md-offset-2.col-md-5.lesson-btn.next-btn > a, #show-aula-comments > div > div.row > div.col-md-5.lesson-btn.prev-btn > a.btn.btn-highlight {
+padding-left: 15px !important;
+padding-right: 15px !important;
+}
+
+
+
 .lesson-btn {
   h5 {
     font-size:1.5em;

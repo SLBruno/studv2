@@ -4,6 +4,8 @@ O Puggs é uma plataforma de cursos no qual pretendo desenvolver vários sistema
 
 ## Próximas Atualizações
 * adicionar e linkar paperclip
+* active_admin - atualizar
+* deixar link de video como opcional
 * é possível completar uma aula - as aulas já realizadas ficam gravadas.
 * gamificar
 * editar página do usuário com gamification e já deixar os cursos realizados nesta página
@@ -15,5 +17,5 @@ O Puggs é uma plataforma de cursos no qual pretendo desenvolver vários sistema
 * É possível cadastrar seu email para receber os novos vídeos toda a semana ou dia.
 
 
-## 05/01
-* Pega apenas os vídeos que não existem no database.
+## Progresso
+* 21/01 - Criação de shortcodes e layout - botões, box e etc.
