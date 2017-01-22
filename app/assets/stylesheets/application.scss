@@ -7,6 +7,7 @@ $dark-blue: #028BB1;
 $grey: #F6F8F8;
 $dark-grey: #E2E8E9;
 $darker-grey: #697681;
+$almost-black: #161616;
 
 
 
@@ -34,6 +35,7 @@ h2 {
 
 h3 {
   font-size: 2em;
+  line-height: 1.25em;
   @media (max-width: 650px) {
   }
 }
@@ -201,6 +203,13 @@ h1, h2, h3 {
   size: 2em;
 }
 
+
+// IMAGES
+.img-right {
+  left: 25px;
+  position: relative;
+}
+
 // SUB-HEADER
 
 .index-subheader-left {
@@ -231,6 +240,10 @@ h1, h2, h3 {
   padding-top: 50px;
 }
 
+.course-title {
+  text-transform: uppercase;
+  font-size: 1.25em !important;
+}
 .circleimgindex {
     width: 100px;
     height: 100px;
@@ -265,11 +278,12 @@ h1, h2, h3 {
 
 .btn-highlight {
   margin: auto;
-  margin-top:40px;
+  padding: 9px 40px 9px 40px;
+  margin-top: 40px;
   display: block;
   background-color: $blue;
   color: white;
-  font-size: 1.3em;
+  font-size: 1em;
   font-weight: 600;
 }
 
@@ -334,7 +348,7 @@ h1, h2, h3 {
     line-height: 1.5em;
   }
   h3 {
-    margin-bottom: 30px; 
+    margin-bottom: 30px;
   }
 }
 
@@ -346,7 +360,9 @@ h1, h2, h3 {
 }
 
 .content-container {
-  max-width: 750px;
+  max-width: 1000px;
+  padding-left: 125px;
+  padding-right: 125px;
   margin: 0 auto;
   margin-top: 50px;
   @media (max-width: 750px) {
@@ -401,19 +417,64 @@ h1, h2, h3 {
 //SHORTCODES
 
 .box {
-  padding: 15px;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
+  background-color: #eaeaea;
 }
 
 .box-grey {
-  background-color: #ececec;
+  background-color: #fafafa;
 }
 
 .box-red {
   background-color: red;
 }
 
+.full-width-blue {
+  background-color: $blue;
+  color: white;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  .content-container {
+    margin-top: 0px;
+  }
+}
 
+.centered-hr {
+  width: 33%;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  border-color: $dark-grey;
+}
 
+.inside-hr {
+  font-weight: 300;
+  text-align: center;
+}
+
+.lesson-btn {
+  h5 {
+    font-size:1.5em;
+    font-weight: 600;
+    margin-bottom: 0;
+  }
+  small {
+    text-decoration: none;
+  }
+}
+
+.next-btn {
+  a {
+    text-align: right;
+  }
+}
+
+.prev-btn {
+  a {
+    text-align: left;
+  }
+}
 
 // box-shadow para ser usado no cinza: 0 0.125em 0.25em 0 rgba(46, 61, 73, 0.12);
 // box-shadow udacity no branco: 0.3125em 1.25em 0 rgba(46, 61, 73, 0.12);

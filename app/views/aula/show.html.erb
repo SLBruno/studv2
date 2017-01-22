@@ -8,16 +8,27 @@
     </div>
   </header>
   <section id="show-aula-content">
-    <div class="content content-container">
+    <div class="content">
     <%= render file: "/aulas-html/#{@aula.content}" %>
     </div>
   </section>
   <section id="show-aula-comments">
     <div class="content content-container">
-      <% if !@next_aula.nil? %>
-        <%= link_to "Próxima Aula",[@next_aula.curso, @next_aula], class:"btn btn-highlight" %>
-      <% end %>
-    <hr>
+      <div class="row">
+        <div class="col-md-5 lesson-btn prev-btn">
+          <% if !@prev_aula.nil? %>
+            <%= link_to link_to(raw("<h5>Aula Anterior</h5> <p><small>#{@prev_aula.title}</small></p>"),[@prev_aula.curso, @prev_aula], class:"btn btn-highlight") %>
+          <% end %>
+        </div>
+        <div class="col-md-offset-2 col-md-5 lesson-btn next-btn">
+          <% if !@next_aula.nil? %>
+            <%= link_to(raw("<h5>Próxima Aula</h5> <p><small>#{@next_aula.title}</small></p>"),[@next_aula.curso, @next_aula], class:"btn btn-highlight") %>
+          <% end %>
+        </div>
+      </div>
+    <hr class="centered-hr" style="margin-top:75px;">
       <%= render 'shared/disqus' %>
+    <hr class="centered-hr">
   </div>
+</div>
   </section>
