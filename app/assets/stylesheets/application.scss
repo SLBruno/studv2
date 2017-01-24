@@ -431,6 +431,13 @@ h1, h2, h3 {
   background-color: red;
 }
 
+.img-center {
+  display: block;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 10px;
+}
+
 .full-width-blue {
   background-color: $blue;
   color: white;
@@ -458,8 +465,6 @@ padding-left: 15px !important;
 padding-right: 15px !important;
 }
 
-
-
 .lesson-btn {
   h5 {
     font-size:1.5em;
@@ -481,6 +486,11 @@ padding-right: 15px !important;
   a {
     text-align: left;
   }
+}
+
+.img-small {
+  text-align: center;
+  text-size: 0.8em;
 }
 
 // box-shadow para ser usado no cinza: 0 0.125em 0.25em 0 rgba(46, 61, 73, 0.12);
