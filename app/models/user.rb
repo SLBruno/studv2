@@ -5,14 +5,16 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable, :omniauthable
-    
+
   has_many :subscriptions
   has_many :cursos, through: :subscriptions
   has_many :reviews
-    
+  has_many :viewed_courses
+  has_many :viewed_lessons
+
     def self.from_omniauth(auth)
         user = User.where(email: auth.info.email).first
-        
+
         if user
             return user
         else
@@ -24,6 +26,6 @@ class User < ActiveRecord::Base
                 user.image = auth.info.image
                 user.password = Devise.friendly_token[0,20]
             end
-        end 
+        end
      end
 end

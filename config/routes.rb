@@ -1,29 +1,29 @@
 Rails.application.routes.draw do
-  
-  #devise code!    
+
+  #devise code!
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-    devise_for :users, 
-                :path => '', 
+    devise_for :users,
+                :path => '',
                 :path_names => {:sign_in => "login", :sign_out => "deslogar", :edit => "perfil"},
                 :controllers => {:omniauth_callbacks => 'omniauth_callbacks'}
-  
+
   post '/gratis' => 'charge#free'
   post '/pago' => 'charge#pago'
   post '/payment' => 'charge#payment'
   get '/meuscursos' => 'cursos#list'
-    
   get '/subscriptions/:id' => "charge#show"
   post '/hook' => "charge#hook"
+  put '/aulaconcluida' => 'aulas#proxima_aula'
 
    resources :cursos do
-       resources :aula, only: [:show, :next_aula_point]
-    end 
-    
+       resources :aula, only: [:show, :next_aula_point, :proxima_aula]
+    end
+
     resources :curso do
         resources :reviews, only: [:create, :destroy]
     end
-    
+
   root 'cursos#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
